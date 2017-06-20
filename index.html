@@ -1,11 +1,347 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>个人网站</title>
+	<title>龙及纯-前端攻城狮-个人简历</title>
 	<meta name='TTUNION_verify' content='605c8efeafb9a1ec2ab0470afab31c43'>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		i{font-style: normal;}
+		.content-wrap{width: 1000px;margin: auto;border:1px solid #ccc;padding: 20px}
+		h1,h3{font-weight: normal;}
+		h1{padding: 30px 0 40px 0;}
+
+		h3{padding: 10px 20px;border-bottom: 1px solid rgba(77, 107, 210, 0.72);margin-bottom: 15px;font-weight: bold;}
+		section{margin-bottom: 40px;overflow: hidden;}
+		.gap{display: inline-block;width: 5px;background: rgba(77, 107, 210, 0);height: 16px;border-radius: 3px;margin:0 60px;}
+		.fl{float: left;}
+		.person-info li{overflow: hidden;height: 26px;}
+		.person-info li div{width: 50%}
+		.rect{position: relative;width: 100px;height: 100px ;border:1px solid #ccc;}
+		.out{width: 90px;height: 90px;margin: 5px auto;border-radius: 45px;background: #f90;padding: 15px;box-sizing: border-box;}
+		.inner{width: 60px;height: 60px;background: #fff;border-radius: 30px;position: absolute;top:20px;left: 20px;z-index: 3;}
+		.mask{position: absolute;top:0;left: 0;width: 100%;height: 30px;background: #fff;z-index: 2;}
+		
+		.skill li{
+			overflow: hidden;
+		}
+		.skill i{
+			padding: 3px 6px;
+			width: 80px;
+			text-align: right;
+			float: left;
+		}
+		.skill div{
+			float: left;
+		}
+
+		.skill span{
+			display: inline-block;
+			padding: 0px 6px;
+			margin-right: 10px;
+			border-radius: 5px;
+			color:#fff;
+		}
+		.skill .deep1 span{
+			background-color:rgba(69,130,213,1);
+		}
+		.skill .deep2 span{
+			background-color:rgba(69,130,213,.9);;
+		}
+		.skill .deep3 span{
+			background-color:rgba(69,130,213,.8);;
+		}
+		.skill .deep4 span{
+			background-color:rgba(69,130,213,.7);;
+		}
+		.intention .circle-wrap{
+			width: 100%;
+			height: 300px;
+			position: relative;
+		}
+		.intention .circle-wrap div{
+			display: table;
+			border-radius: 100%;
+			position: absolute; 
+			width: 110px;
+			height: 110px;
+			text-align: center;
+		}
+
+		.intention .circle-wrap span{
+			color:#f1f1f1;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.intention .circle-wrap div:nth-of-type(1){background-color: #99c4e2;width: 130px;height: 130px;top:120px;left: 420px;}
+		.intention .circle-wrap div:nth-of-type(2){background-color: #8f8fe0;width: 50px;height: 50px;top:20px;left: 520px;}
+		.intention .circle-wrap div:nth-of-type(3){background-color: #82aecc;width: 60px;height: 60px;top:220px;left: 900px;}
+		.intention .circle-wrap div:nth-of-type(4){background-color: #3d7dd4;width: 70px;height: 70px;top:20px;left: 720px;}
+		.intention .circle-wrap div:nth-of-type(5){background-color: #4582d5;width: 100px;height: 100px;top:20px;left: 850px;}
+		.intention .circle-wrap div:nth-of-type(6){background-color: #7193da;width: 100px;height: 100px;top:80px;left: 600px;}
+		.intention .circle-wrap div:nth-of-type(7){background-color: #7193da;width: 100px;height: 100px;top:120px;left: 750px;}
+		.intention .circle-wrap div:nth-of-type(8){background-color: #4582d5;width: 100px;height: 100px;top:40px;left: 20px;}
+		.intention .circle-wrap div:nth-of-type(9){background-color: #82aecc;width: 80px;height: 80px;top:80px;left: 310px;}
+		.intention .circle-wrap div:nth-of-type(10){background-color: #4582d5;width: 70px;height: 70px;top:220px;left: 630px;}
+		.intention .circle-wrap div:nth-of-type(11){background-color: #99c4e2;width: 80px;height: 80px;top:215px;left: 45px;}
+		.intention .circle-wrap div:nth-of-type(12){background-color: #82aecc;width: 90px;height: 90px;top:25px;left: 195px;}
+		.intention .circle-wrap div:nth-of-type(13){background-color: #7193da;width: 90px;height: 90px;top:180px;left: 170px;}
+		.exp li p{font-size: 14px;text-indent: 40px;line-height: 24px;}
+		section b{color: rgba(77, 107, 210, 0.72)}
+		article li{font-size:14px;text-indent: 40px;line-height: 24px;}
+		.padl-30{padding-left: 30px;}
+		.hei{height: 15px;}
+		.righ200{display: inline-block;width: 200px;}
+	</style>
 </head>
 <body>
-	halo--halo
+
+	<div class="content-wrap">
+		<h1><center>web前端工程师-个人简历</center></h1>
+		<section class="person-info">
+			<h3>个人信息</h3>
+			<ul>
+				<li>
+					<div class="fl">
+						<span>姓　　名：</span><i>龙及纯</i>
+					</div>
+					<div class="fl">
+						<span>姓　　别：</span><i>男</i>
+					</div>
+				</li>
+				<li>
+					<div class="fl">
+						<span>出生年月：</span><i>1990.11</i>
+					</div>
+					<div class="fl">
+						<span>毕业院校：</span><i>湖北经济学院</i>
+					</div>
+				</li>
+				<li>
+					<div class="fl">
+						<span>学　　历：</span><i>本科</i>
+					</div>
+					<div class="fl">
+						<span>专　　业：</span><i>信息管理与信息系统</i>
+					</div>
+				</li>
+				<li>
+					<div class="fl">
+						<span>毕业年份：</span><i>2014.06</i>
+					</div>
+					<div class="fl">
+						<span>微　　信：</span><i>long-246810</i>
+					</div>
+				</li>
+				<li>
+					<div class="fl">
+						<span>手　　机：</span><i>130 4885 1840</i>
+					</div>
+					<div class="fl">
+						<span>邮　　箱：</span><i>long1wood@gmail.com</i>
+					</div>
+				</li>
+
+			</ul>
+		</section>
+		<section class="exp">
+			<h3>工作经历</h3>
+			<ul>
+				<li>
+					<span>深圳博彦科技有限公司（外驻深交所监察部）</span>
+					<span class="gap"></span>
+					<span>2015.06--2017.06</span>
+					<span class="gap"></span>
+					<span>web前端</span>
+				</li>
+				<li class="hei"></li>
+				<li>
+					<span>工作职责：</span>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;负责期权风控系统前端部分</p>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;前端开发工具选型</p>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;部分表格组件开发</p>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;部门门户网站整站开发</p>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;其它项目(深港通大屏)</p>
+				</li>
+			</ul>
+			<br/>
+			<ul>
+				<li>
+					<span>深圳市互联在线</span>
+					<span class="righ200"></span>
+					<span class="gap"></span>
+					<span>2014.05--2015.06</span>
+					<span class="gap"></span>
+					<span>web前端</span>
+				</li>
+				<li class="hei"></li>
+				<li>
+					<span>工作职责：</span>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;实现好站点商城及其后端系统的高保真设计图稿，以及数据对接。</p>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;研发营销小游戏。</p>
+					<p><b>●</b>&nbsp;&nbsp;&nbsp;公司所接其它外包项目。</p>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>部分项目经验</h3>
+			<article>
+				<div>
+					<span>新版期权风控系统</span>
+					<span class="gap"></span>
+					<span>2017.01--2017.06</span>
+					<span class="gap"></span>
+					<span>最新项目</span>
+
+				</div>
+				<div class="hei"></div>
+				<div class="padl-30">
+					<span>系统主要功能</span>
+					<ul>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;实时查询、历史查询有关期权的各类信息，如做市商、保证金、投资者等.</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;期权交易情况实时监控</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;结算价模块设置</li>
+					</ul>
+				</div>
+				<div class="padl-30">
+					<span>在项目中的职责</span>
+					<ul>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;需求分析、前端规格说明书编写</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;前端架构搭建</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;测试工具搭建及测试代码编写</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;核心业务模块代码实现</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;node开发，模拟数据</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;gulp项目构建</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;绘制项目架构及核心代码逻辑的流程图</li>
+					</ul>
+				</div>
+				<div class="padl-30">
+					<span>项目技术</span>
+					<ul>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;karma+jsmine进行单元测试、webdriverio+mocha进行端到端测试</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;gulp进行代码构建</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;angular1实现前端基础架构，以及业务功能</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;ext6.0构建系统所有的表格查询</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;d3+svg实现数据可视化</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;websocket实现数据推送</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;离线存储、web本地存储</li>
+					</ul>
+				</div>	
+			</article>
+			<div class="hei"></div>
+			<div class="hei"></div>
+			<article>
+				<div>
+					<span>好站点o2o电商平台</span>
+					<span class="gap"></span>
+					<span>2014.08--2015.02</span>
+					<span class="gap"></span>
+					<span>初期项目</span>
+				</div>
+				<div class="hei"></div>
+				<div class="padl-30">
+					<span>平台主要功能</span>
+					<ul>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;邀请商家入驻，进行商品服务售卖</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;提供商城模板，供商家选择</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;商品展示，商家下单、购买、收货流程</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;商城管理系统</li>
+					</ul>
+				</div>
+				<div class="padl-30">
+					<span>在项目中的职责</span>
+					<ul>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;与UI合作将移动端、pc端设计稿转化为静态页面</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;与后台工程师协作完成ajax数据对接</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;研发帮助企业营销的小游戏</li>
+					</ul>
+				</div>
+				<div class="padl-30">
+					<span>项目技术</span>
+					<ul>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;jquery</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;css3样式</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;移动端事件</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;响应式布局</li>
+						<li><b>●</b>&nbsp;&nbsp;&nbsp;canvas图像处理</li>
+					</ul>
+				</div>	
+			</article>
+			<div class="hei"></div>
+			<div class="hei"></div>
+			<article>
+				<p>其它项目可在面试中做详细介绍</p>
+			</article>
+		</section>
+		<section class="skill">
+			<h3>技能</h3>
+			<ul>
+				<li class="deep1">
+					<i>熟悉：</i>
+					<div>
+						<span>JavaScript</span>
+						<span>jquery</span>
+						<span>gulp</span>
+					</div>
+				</li>
+				<li class="deep2">
+					<i>了解：</i>
+					<div>
+						<span>html</span>
+						<span>css</span>
+						<span>angular1.x</span>
+						<span>require</span>
+					</div>
+				</li>
+				<li class="deep3">
+					<i>略懂：</i>
+					<div>
+						<span>node</span>
+						<span>d3.js</span>
+						<span>lodash/underscore</span>
+						<span>http协议</span>
+						<span>webdiverio</span>
+						<span>mocha</span>
+						<span>karma</span>
+						<span>canvas</span>
+						<span>svg</span>
+					</div>
+				</li>
+				<li class="deep4">
+					<i>使用过：</i>
+					<div>
+						<span>php</span>
+						<span>python</span>
+						<span>express</span>
+						<span>mysql</span>
+						<span>mongodb</span>
+						<span>ext</span>
+						<span>rxjs</span>
+						<span>git</span>
+					</div>
+				</li>
+			</ul>
+
+		</section>
+		<section class="intention">
+			<h3>求职意向/擅长</h3>
+			<div class="circle-wrap">
+				<div><span>web信息系统</span></div>
+				<div><span>PC</span></div>
+				<div><span>node</span></div>
+				<div><span>angular</span></div>
+				<div><span>数据处理</span></div>
+				<div><span>互联网应用</span></div>
+				<div><span>金融服务</span></div>
+				<div><span>数据可视化</span></div>
+				<div><span>钱多多</span></div>
+				<div><span>不能闲</span></div>
+				<div><span>python</span></div>
+				<div><span>非外包</span></div>
+				<div><span>推崇原生js</span></div>
+			</div>
+		</section>
+	</div>
 </body>
 </html>
