@@ -1,9 +1,9 @@
-var pdf = require('pdfkit');  
-var fs = require('fs');  
-var pdfo = new pdf();  
- 
-fs.readFile("./index.html",function(err,doc){
-	pdfo.pipe(fs.createWriteStream('Aim.pdf'));  
-	pdfo.text(doc,0,0);  
-	pdfo.end();  
-})
+var fs = require('fs');
+var pdf = require('html-pdf');
+var html = fs.readFileSync('./index.html', 'utf8');
+var options = { format: 'Letter' };
+
+pdf.create(html, options).toFile('./businesscard.pdf', function(err, res) {
+  if (err) return console.log(err);
+  console.log(res); // { filename: '/app/businesscard.pdf' }
+});
