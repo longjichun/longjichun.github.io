@@ -2,14 +2,19 @@ var event = require("events")
 var myEve = new event()
 
 // 													1
-myEve.setMaxListeners(12)
+myEve.setMaxListeners(12) 
 for(var i = 0;i<12;i++) {
-	// 可以使用myEve.setMaxListeners(n) 进行设置绑定个数，默认为10个
+	// 可以使用myEve.setMaxListeners(n) 进行设置绑定个数，默认为10个 or  myEve.setMaxListners(0)移除限制
 	myEve.on("eve",function(a){
 		console.log(a)
 	})
 }
-
+for(var i = 0;i<14;i++) {
+	// 可以使用myEve.setMaxListeners(n) 进行设置绑定个数，默认为10个
+	myEve.once("eve2",function(a){
+		console.log(a)
+	})
+}
 // 													6
 console.log(myEve.listeners('eve'))
 
