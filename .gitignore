@@ -3,6 +3,7 @@
 /net/node_modules
 /cluster/node_modules
 /studyexpress/node_modules
+/parcel/node_modules
 /.idea
 npm-debug.log
 /public/webui
