@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" x="1">
+	<input type="text" x="2">
+	<input type="text" x="3">
+	<input type="text" x="4">
+	<input type="text" x="5">
+	<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
+	<script>
+		/*var ipts = document.getElementsByTagName("input")
+		for(var i=0;i<ipts.length;i++) {
+			ipts[i].onblur = function(e){
+				console.log( this.getAttribute("x"))
+			}
+		}*/
+		$('input').blur(function(){
+			if(!$(this).val()) {
+				console.log(33)
+			}
+		})
+	</script>
+</body>
+</html>

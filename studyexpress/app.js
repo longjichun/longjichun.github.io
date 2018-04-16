@@ -24,6 +24,16 @@ app.use(express.static( path.join(__dirname, 'public') , {etag:true,redirect:tru
 
 app.use('/', index);
 app.use('/users', users);
+app.get('/cache_control',function(req,res){
+  res.set({
+    'ETag':'abcd',
+  })
+  res.end('1234')
+})
+app.all('/cache',function(req,res){
+  res.set({'Cache-Control':'max-age=26400'})
+  res.end("ccc")
+})
 
 app.on("mount", function(parent){
 	console.log("app.Mouted")
