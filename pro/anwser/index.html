@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>党内法规答题活动</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" name="viewport" id="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="icon" href="" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/part.css?time=20180401" />
+    <link rel="stylesheet" type="text/css" href="css/newly.css?time=20180401" />
+    <!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!--<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>-->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+
+</head>
+<body>
+<!-- 强制关注公众号 -->
+<!-- Skin hook模块 -->
+<link rel="stylesheet" type="text/css" href="css/hook.css" />
+<section id="sec1" class="hide">
+    <div class="operation">
+        <a id="startAnser" class="" href="javascript:void(0)">开始答题</a>
+        <div class="links">
+            <a href="#">查看排行</a>
+            <span>|</span>
+            <a href="#">我要学习</a>
+            <span>|</span>
+            <a href="#">活动规则</a>
+        </div>
+    </div>
+</section>
+<section id="sec2">
+    <div class="content">
+        <div class="header"></div>
+        <div class="forminfo">
+            <ol>
+                <li>
+                    <div class="icon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="text" placeholder="请输入您的真实姓名">
+                    </div>
+                </li>
+                <li>
+                    <div class="icon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="text" placeholder="请输入您所在的地市">
+                    </div>
+                </li>
+                <li>
+                    <div class="icon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="text" placeholder="请输入您所在的区域">
+                    </div>
+                </li>
+                <li>
+                    <div class="icon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="text" placeholder="请输入您的单位全称">
+                    </div>
+                </li>
+                <li>
+                    <div class="icon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="Number" placeholder="请输入您的手机号码">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    (function(){
+        var startTime = new Date('2018-05-06 18:01:00').getTime()
+        var str = ['<i>','','</i>','时','<i>','','</i>','分','<i>','','</i>','秒'];
+        setTimeout(function rerender(){
+            var currentTime = new Date().getTime();
+            var sub = startTime - currentTime;
+            if(sub>0) {
+                var d = new Date(sub)
+                str[1] = d.getUTCHours() + 24*parseInt(sub/(24*60*60*1000));
+                str[5] = d.getMinutes()
+                str[9] = d.getSeconds()
+                $("#startAnser").html(str.join("")).addClass("to-anwser")
+                setTimeout(rerender,1000)
+            } else {
+                $("#startAnser").removeClass("to-anwser").html("开始答题")
+            }
+        })
+
+    }())
+</script>
+</body>
+</html>

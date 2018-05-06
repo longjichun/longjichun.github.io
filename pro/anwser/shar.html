@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>人防答题活动</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-type" name="viewport" id="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="icon" href="" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/index.css?time=20180401" />
+	<link rel="stylesheet" type="text/css" href="css/newly.css?time=20180401" />
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/share.js"></script>
+    <script type="text/javascript" src="http://moment.rednet.cn/common/js/openApp.js"></script>
+	<style>
+		#result-text .time {
+			position: absolute;
+			right: 0;
+			width: 1.9rem;
+			text-align: right;
+		}
+		#result-text {
+			color: #2E4394;
+			position: relative;
+			height: 0.8rem;
+			padding: 0.51rem 0 0;
+			margin: 0 0.3rem;
+		}
+		#result-text .score {
+			position: absolute;
+			left: 0rem;
+			text-align: left;
+		}
+		.time:before {
+			content: "";
+			width: 0.8rem;
+			height: 0.5rem;
+			position: absolute;
+			background: url(images/sprite-icon.png) no-repeat 0rem -1.49rem/2.8rem;
+			top: 50%;
+			left: 0.62rem;
+			margin-top: -0.25rem;
+		}
+		#result-area {
+			height: 2.6rem;
+		}
+	</style>
+
+</head>
+<body>
+<div id="rule" class="main-nocup">
+	<div class="common-top">
+		<!--<div class="back-btn" backto="" onclick="gopage('rule', this.getAttribute('backto'));">-->
+			<!--<span class="icon-back"></span>-->
+		<!--</div>-->
+	</div>
+	<div class="common-area">
+		<div class="common-box">
+			<!--<div id="result-area">-->
+				<!--<div id="result-text">-->
+					<!--<span class="score">学籍号: <label>333333</label></span>-->
+					<!--<span class="time"><label>00:00:05</label></span>-->
+				<!--</div>-->
+				<!--<div id="result-info">-->
+					<!--<div class="yellow-sticker">-->
+						<!--<div id="result-correct"></div>正确-->
+					<!--</div>-->
+					<!--<div class="blue-sticker">-->
+						<!--<div id="result-rank"></div>排名-->
+					<!--</div>-->
+					<!--<div class="green-sticker">-->
+						<!--<div id="result-incorrect"></div>错误-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div id="rule-detail">
+				<img src="images/page-rule@2x.png" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+		var url = window.location.href;
+		$.ajax({
+			type: "get",
+			async: false,
+			url: "http://weixin.rednet.cn/redpack/jssdk2.php?url=" + encodeURIComponent(url),
+			dataType: "json",
+			success: function(json) {
+				wx.config({
+					appId: json.appId,
+					timestamp: json.timestamp,
+					nonceStr: json.nonceStr,
+					signature: json.signature,
+					jsApiList: [
+						"onMenuShareTimeline",
+						"onMenuShareAppMessage",
+						"onMenuShareQQ",
+						"onMenuShareWeibo",
+						"onMenuShareQZone"
+					]
+				});
+
+				wx.ready(function () {
+					var shareData = {
+						title: "学习防空防灾知识,掌握防护生存技能",
+						desc: "郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。",
+						link: window.location.href,
+						imgUrl: "http://moment.rednet.cn/common/img/RF-logo.png"
+					};
+					wx.onMenuShareAppMessage(shareData);
+					wx.onMenuShareTimeline(shareData);
+					wx.onMenuShareQQ(shareData);
+					wx.onMenuShareWeibo(shareData);
+					wx.onMenuShareQZone(shareData);
+				});
+			}
+		});
+
+		</script>
+</body>
+</html>
