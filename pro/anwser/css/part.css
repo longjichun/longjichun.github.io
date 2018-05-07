@@ -7,6 +7,9 @@
 ul,ol,li{
 	list-style: none;
 }
+i{
+	font-style: normal;
+}
 a{
 	text-decoration: none;
 }
@@ -16,13 +19,13 @@ html,body{
 	background-color: #c32229;
 	background-image: url('../images/background-top@2x.png');
 	background-repeat: no-repeat;
+	background-size: 100%;
 }
 section{
 	top:0px;
 	bottom:0px;
 	height: 100%;
-	background-size: 100%;
-	background-repeat: no-repeat;
+
 }
  input::-webkit-input-placeholder{
     color:#666;
@@ -36,7 +39,9 @@ input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
     color:#666;
 }
-
+.ov{
+	overflow: hidden;
+}
 .sel{
 	position: relative;
 }
@@ -54,6 +59,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 #sec1{
 	/*display: none;*/
 	background-image:  url('../images/background-cover@2x.png');	
+	background-size: 100%;
+	background-repeat: no-repeat;
 	position: relative;
 }
 .operation{
@@ -62,12 +69,15 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	width: 68%;
 	position: absolute;
 }
-#startAnser {
+.choice {
+
+}
+# listartAnser {
 }
 .sure {
 	border-radius: 5px;
 	display: block;
-	text-align: center;
+	text-al333: center;
 	color: #fff;
 	font-weight: bold;
 	margin: auto;
@@ -189,4 +199,51 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .forminfo ol>li:nth-of-type(6n-1) .icon {
 	background-position:-16.3rem -5.6rem;
+}
+
+
+.ques-anw{
+	background: url(../images/logo@2x.png) center 2rem no-repeat;
+	background-size: 25%;
+}
+.header-time {
+	background: rgba(255,255,255,0.1);
+	border-radius: 6px;
+	float: right;
+	margin: 20px 20px 0 0;
+	padding: 5px;
+}
+.header-time span{
+	
+	color: #fff;
+}
+.question {
+
+}
+.question p{
+	font-size: 110%;
+	line-height: 1.8rem;
+	color: #fff;
+	width: 80%;
+	margin: 8rem auto 2rem;
+	text-indent: 3rem
+}
+.choice {
+	width: 70%;
+	margin: auto;
+}
+.choice li{
+	margin-bottom:20px;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	text-align: center;
+	color: #333;
+	background-color: #fff;
+	border-radius: 6px;
+}
+.cho-right{
+
+}
+.cho-error{
+
 }
