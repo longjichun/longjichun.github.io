@@ -241,9 +241,14 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-color: #fff;
 	border-radius: 6px;
 }
-.cho-right{
-
+.choice .cho-right{
+	background-color: rgb(255,192,23);
+	color: #fff;
+	background-image: url('../images/sprite-icon@2x.png');
+	background-repeat: no-repeat;
+	background-size: 150% 400%;
+	background-position: 0rem -3.7rem;
 }
-.cho-error{
+.choice .cho-error{
 
 }
