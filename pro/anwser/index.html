@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="css/part.css?time=20180401" />
     <link rel="stylesheet" type="text/css" href="css/newly.css?time=20180401" />
     <!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <!--<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>-->
     <!-- <script type="text/javascript" src="js/common.js"></script> -->
 
@@ -103,15 +104,24 @@
     </div>
     <div class="choice">
         <ul>
-            <li class="cho-right">关键多数</li>
-            <li class="cho-error">关键少数</li>
-            <li>关键群体</li>
-            <li>关键个体</li>
+            <!-- choosed 已选择     right-anwser 正确答案       cho-right 选择正确 -->
+            <li class="choosed right-anwser cho-right"><i></i><span>选择一个正确的</span><b></b></li>
+            <li class="choosed cho-error"><i></i><span>选择一个错误的</span><b></b></li>
+            <li class="right-anwser"><i></i><span>没有选择正确的</span><b></b></li>
+            <li><i></i><span>没有选择错误的</span><b></b></li>
         </ul>
     </div>
 </section>
 <script type="text/javascript">
+    function fillNum(n) {
+        if(n<10) {
+            return '0'+n;
+        } else {
+            return n;
+        }
+    }
     (function(){
+        // 开始首页
         var startTime = new Date('2018-05-06 18:01:00').getTime()
         var str = ['<i>','','</i>','时','<i>','','</i>','分','<i>','','</i>','秒'];
         setTimeout(function rerender(){
@@ -122,13 +132,38 @@
                 str[1] = d.getUTCHours() + 24*parseInt(sub/(24*60*60*1000));
                 str[5] = d.getMinutes()
                 str[9] = d.getSeconds()
-                $("#startAnser").html(str.join("")).addClass("to-anwser")
+                $("#startAnser").html(str.join("")).addClass("to-anwser cho-right")
                 setTimeout(rerender,1000)
             } else {
                 $("#startAnser").removeClass("to-anwser").html("开始答题")
             }
         })
+    }());
 
+    (function(){
+        var returnTime = 10;
+        setTimeout(function returnTime(){
+            if(returnTime--) {
+                $(".header-time").eq(0).find("i").text( fillNum(returnTime) )
+                setTimeout(returnTime,1000)
+            } else {
+                examAnwser()
+            }
+        });
+
+        $(".choice ul li").on("tap",function(e){
+            console.log("succ tap")
+        })
+        $(".choice ul li").on("touch",function(e){
+            console.log("succ touch")
+        })
+
+        function showNext() {
+
+        }
+        function examAnwser() {
+
+        }
     }())
 </script>
 </body>

@@ -240,15 +240,41 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #333;
 	background-color: #fff;
 	border-radius: 6px;
+	display: flex;	
 }
-.choice .cho-right{
-	background-color: rgb(255,192,23);
+
+.choice .cho-error {
+	background-color: #ccc;
+}
+.choice .right-anwser {
 	color: #fff;
+	background-color: rgb(255,192,23);
+}
+.choice li>*{
+	align-items: center;
+	text-align: center;
+}
+.choice li span{
+	flex: 1;
+}
+.choice li b,.choice li i{
+	width: 3.5rem;
+}
+.choice .choosed i{
 	background-image: url('../images/sprite-icon@2x.png');
 	background-repeat: no-repeat;
-	background-size: 150% 400%;
-	background-position: 0rem -3.7rem;
+	background-size: 550% 300%;
+	background-position: 0.5rem -2.5rem;
 }
-.choice .cho-error{
-
+.choice .cho-error b{
+	background-image: url('../images/sprite-icon@2x.png');
+	background-repeat: no-repeat;
+	background-size: 550% 300%;
+	background-position: -5.5rem -2.5rem;	
+}
+.choice .cho-right b {
+	background-image: url('../images/sprite-icon@2x.png');
+	background-repeat: no-repeat;
+	background-size: 550% 300%;
+	background-position: -2.5rem -2.5rem;		
 }
