@@ -75,6 +75,11 @@ section{
 	margin-right: 15px;
 }
 
+
+#fillInfo{
+	width: 80%;
+	margin: auto;	
+}
 .content{
 	position: absolute;
 	left: 0;
@@ -139,19 +144,20 @@ section{
 	width: 2.4rem;
 	height: 2.0rem;
 	background-image: url('../images/sprite-icon@2x.png')
+	background-position:1200% 600%;
 }
 .forminfo ol>li:nth-of-type(6n-5) .icon {
-	background-position:-18.3rem -9.5rem;
+	background-position:11.5rem -9.0rem;
 }
 .forminfo ol>li:nth-of-type(6n-4) .icon {
-	background-position:-22.8rem -5rem;
+	background-position:-21.2rem -5rem;
 }
 .forminfo ol>li:nth-of-type(6n-3) .icon {
-	background-position:-18.4rem -5rem;
+	background-position:-17rem -5rem;
 }
 .forminfo ol>li:nth-of-type(6n-2) .icon {
-	background-position:-22.8rem -9.5rem;
+	background-position:-21.2rem -9.0rem;
 }
 .forminfo ol>li:nth-of-type(6n-1) .icon {
-	background-position:-27.1rem -9.5rem;
+	background-position:-25.3rem -9rem;
 }
