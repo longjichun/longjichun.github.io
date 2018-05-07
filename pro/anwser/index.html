@@ -17,13 +17,12 @@
     <!--<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>-->
     <!-- <script type="text/javascript" src="js/common.js"></script> -->
 
-
 </head>
 <body>
 <!-- 强制关注公众号 -->
 <!-- Skin hook模块 -->
 <link rel="stylesheet" type="text/css" href="css/hook.css" />
-<section id="sec1" class="hide">
+<section id="sec1" class="hid">
     <div class="operation">
         <a id="startAnser" class="sure" href="javascript:void(0)">开始答题</a>
         <div class="links">
@@ -31,7 +30,7 @@
             <span>|</span>
             <a href="#">我要学习</a>
             <span>|</span>
-            <a href="#">活动规则</a>
+            <a href="./rule.html">活动规则</a>
         </div>
     </div>
 </section>
@@ -94,12 +93,12 @@
         </div>
     </div>
 </section>
-<section id="sec3" class="ques-anw ov hid ">
+<section id="sec3" class="ques-anw ov hide">
     <div class="header-time ov">
         <span>00:00:00</span>
     </div>
     <div class="question">
-        <p>党组织再纪律审查中发现党员有贪污贿赂、失职渎职等刑法规定的行为涉嫌犯罪的，应当给予___处分。</p>
+        <p class="mult"><i></i><span>党组织再纪律审查中发现党员有贪污贿赂、失职渎职等刑法规定的行为涉嫌犯罪的，应当给予___处分。</span></p>
     </div>
     <div class="choice">
         <ul>
@@ -119,7 +118,14 @@
         <div class="btn-next">下一题</div>
     </div>
 </section>
+<section id="sec4" class="hide">
+    <div class="grade"></div>
+</section>
 <script type="text/javascript">
+    function showModule(n){
+        $("section").hide()
+        $("section").eq(n).show()
+    }
     function fillNum(n) {
         if(n<10) {
             return '0'+n;
@@ -154,9 +160,9 @@
     }());
 
     $("#startAnser").on("click",function(){
+        showModule(2)
         runAnwser()
     });
-    runAnwser()
     function totalTime() {
         var n = 0;
         setTimeout(function repeat() {
