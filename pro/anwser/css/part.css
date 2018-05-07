@@ -156,6 +156,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	overflow: hidden;
 	display: flex;
 	display: -webkit-flex;
+	display: -webkit-flex;
 }
 .content .forminfo .ipt {
 	height: 2.0rem;
@@ -201,6 +202,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-position:-16.3rem -5.6rem;
 }
 
+/* 个人信息填写部分 end*/
+
 
 .ques-anw{
 	background: url(../images/logo@2x.png) center 2rem no-repeat;
@@ -214,7 +217,6 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	padding: 5px;
 }
 .header-time span{
-	
 	color: #fff;
 }
 .question {
@@ -240,7 +242,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #333;
 	background-color: #fff;
 	border-radius: 6px;
-	display: flex;	
+	display: flex;
+	display: -webkit-flex;	
 }
 
 .choice .cho-error {
@@ -278,3 +281,47 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-size: 550% 300%;
 	background-position: -2.5rem -2.5rem;		
 }
+
+.next-que{
+	display: flex;
+	display: -webkit-flex;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3.5rem;
+	background-color: #fff;
+}
+.next-que>div{
+	align-items: center;
+	line-height: 3.5rem;
+}
+.next-que .items{
+	flex: 1;
+	padding-left: 3rem;
+	background-image: url(../images/sprite-icon@2x.png);
+	background-repeat: no-repeat;
+	background-position: -21rem -3rem;
+	background-size: 140% 270%;
+	font-size: 110%;
+}
+.next-que .btn-next {
+	width: 6rem;
+	text-align: center;
+	color: #fff;
+	background-color: rgb(12,171,245);
+	font-size: 110%;
+}
+.next-que .current{
+	color: #444;	
+}
+
+.next-que .total {
+	color: #bbb;
+}
+
+/*答题部分 end*/
+
+
+
+

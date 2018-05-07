@@ -13,8 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/part.css?time=20180401" />
     <link rel="stylesheet" type="text/css" href="css/newly.css?time=20180401" />
     <!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
-    <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> -->
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <!--<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>-->
     <!-- <script type="text/javascript" src="js/common.js"></script> -->
 
@@ -97,7 +96,7 @@
 </section>
 <section id="sec3" class="ques-anw ov hid ">
     <div class="header-time ov">
-        <span>00:00:<i>00</i></span>
+        <span>00:00:00</span>
     </div>
     <div class="question">
         <p>党组织再纪律审查中发现党员有贪污贿赂、失职渎职等刑法规定的行为涉嫌犯罪的，应当给予___处分。</p>
@@ -111,6 +110,14 @@
             <li><i></i><span>没有选择错误的</span><b></b></li>
         </ul>
     </div>
+    <div class="next-que">
+        <div class="items">
+            <i class="current">00</i>
+            <i>/</i>
+            <i class="total">00</i>
+        </div>
+        <div class="btn-next">下一题</div>
+    </div>
 </section>
 <script type="text/javascript">
     function fillNum(n) {
@@ -119,6 +126,12 @@
         } else {
             return n;
         }
+    }
+    function formatTime(n) {
+        var h = parseInt(n/3600)
+            m = parseInt(n/60)
+            s = n%60;
+        return fillNum(h) +':'+ fillNum(m)+ ':' + fillNum(s)
     }
     (function(){
         // 开始首页
@@ -140,31 +153,49 @@
         })
     }());
 
-    (function(){
-        var returnTime = 10;
-        setTimeout(function returnTime(){
-            if(returnTime--) {
-                $(".header-time").eq(0).find("i").text( fillNum(returnTime) )
-                setTimeout(returnTime,1000)
-            } else {
-                examAnwser()
+    $("#startAnser").on("click",function(){
+        runAnwser()
+    });
+    runAnwser()
+    function totalTime() {
+        var n = 0;
+        setTimeout(function repeat() {
+            var str = formatTime(n++)
+            $(".header-time span").eq(0).html(str)
+            if(true) {
+                setTimeout(repeat,1000)
             }
-        });
+        },1000)
+    }
+    function runAnwser() {
 
-        $(".choice ul li").on("tap",function(e){
-            console.log("succ tap")
+        totalTime()
+
+        var usedTime = 0;
+        $(".choice ul li").on("click",function(e){
+            if(true) {
+                // 单选在已选择的情况下，选择其它的答案，需要取消当前的
+                $(".choosed").removeClass("choosed")
+            }
+            $(this).addClass('choosed')
+            ifNext()
         })
-        $(".choice ul li").on("touch",function(e){
-            console.log("succ touch")
+        $(".choosed").on("click",function(e){
+            $(this).removeClass("choosed")
+            ifNext()
         })
-
-        function showNext() {
-
+        function ifNext() {
+            if( $(".choice").find(".choosed").length ) {
+                $(".toNext").show()
+            } else {
+                $(".toNext").hide()
+            }
         }
         function examAnwser() {
 
         }
-    }())
+    }
+
 </script>
 </body>
 </html>
