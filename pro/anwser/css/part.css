@@ -146,20 +146,21 @@ section{
 	width: 2.4rem;
 	height: 2.0rem;
 	background-image: url('../images/sprite-icon@2x.png');
-	background-size: 1200% 600%;
+	background-repeat: no-repeat;
+	background-size: 800% 400%;
 }
 .forminfo ol>li:nth-of-type(6n-5) .icon {
-	background-position:11.5rem -9.0rem;
+	background-position: -10.8rem -5.7rem;
 }
 .forminfo ol>li:nth-of-type(6n-4) .icon {
-	background-position:-21.2rem -5rem;
+	background-position:-13.6rem -3rem;
 }
 .forminfo ol>li:nth-of-type(6n-3) .icon {
-	background-position:-17rem -5rem;
+	background-position:-10.9rem -3rem;
 }
 .forminfo ol>li:nth-of-type(6n-2) .icon {
-	background-position:-21.2rem -9.0rem;
+	background-position:-13.6rem -5.5rem;
 }
 .forminfo ol>li:nth-of-type(6n-1) .icon {
-	background-position:-25.3rem -9rem;
+	background-position:-16.3rem -5.6rem;
 }
