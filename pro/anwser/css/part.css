@@ -229,7 +229,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #fff;
 }
 .question {
-
+	margin-top: 2.25rem;
 }
 .question p{
 	font-size: 0.32rem;
@@ -331,21 +331,21 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #bbb;
 }
 .question .single i{
-	background-image: url(../images/sprite-icon@2x.png);
-	background-size: 600% 600%;
-	background-position: 5.1rem -0.5rem;
+	background-position: 0.1rem -0.1rem;
 }
 .question .mult i{
-	background-image: url(../images/sprite-icon@2x.png);
-	background-size: 605% 600%;
-	background-position: 8.2rem -0.5rem;
+	background-position: -2.8rem -0.19rem;
 }
 
 .question i{
 	display: inline-block;
-	width: 3rem;
-	height: 1.3rem;
-	margin-right: 1rem;
+	width: 0.7rem;
+	height: 0.32rem;
+	background-image: url(../images/sprite-icon@2x.png);
+    background-repeat: no-repeat;
+    background-size: 4.9rem 2.1rem;
+    background-position: -1.676rem -0.225rem;
+	/*margin-right: 1rem;*/
 }
 /*答题部分 end*/
 
@@ -364,7 +364,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .content-wrap{
 	border-radius: 12px;
-	width: 90%;
+	width: 6.90rem;
 	margin: auto;
 	border:4px solid rgba(255,255,255,0.1);
 }
