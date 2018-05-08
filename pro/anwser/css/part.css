@@ -335,6 +335,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .question .mult i{
 	background-position: -2.8rem -0.19rem;
+	vertical-align: middle;
+	margin-right: 0.16rem;
 }
 
 .question i{
