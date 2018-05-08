@@ -119,7 +119,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 
-#fillInfo{
+#fillMyInfo{
 	width: 80%;
 	margin: auto;	
 	height: 2.8rem;
@@ -358,7 +358,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	padding: 1rem 2rem;
 	border-radius: 12px;
 }
-.grade{
+.content-wrap{
 	border-radius: 12px;
 	width: 90%;
 	margin: auto;
