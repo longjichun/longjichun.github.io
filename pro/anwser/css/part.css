@@ -13,6 +13,7 @@ a{
 	text-decoration: none;
 }
 html,body{
+	font-family: Arial;
 	width: 100%;
 	height: 100%;
 	background-color: #c32229;
@@ -74,7 +75,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .operation{
 	top: 70%;
 	left: 16%;
-	width: 68%;
+	width: 5rem;
 	position: absolute;
 }
 .choice {
@@ -89,8 +90,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #fff;
 	font-weight: bold;
 	margin: auto;
-	height: 2rem;
-	line-height: 2rem;	
+	height: 0.8rem;
+	line-height: 0.8rem;	
 	background-color: rgb(255,192,23);
 	
 }
@@ -104,18 +105,18 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-color: #ccc !important;
 }
 .links{
-	margin-top: 1.8rem;
+	margin-top: 0.5rem;
 	text-align: center;
 }
 .links>*{
 	color: #fff;
-	font-size: 85%;
+	font-size: 0.28rem;
 	display: inline-block;
 	color: #eee;
 }
 .links span{
-	margin-left: 15px;
-	margin-right: 15px;
+	margin-left: 0.26rem;
+	margin-right: 0.26rem;
 }
 
 
@@ -214,7 +215,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 
 
 .ques-anw{
-	background: url(../images/logo@2x.png) center 2rem no-repeat;
+	background: url(../images/logo@2x.png) center 0.55rem no-repeat;
 	background-size: 25%;
 }
 .header-time {
@@ -231,11 +232,13 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 
 }
 .question p{
-	font-size: 110%;
-	line-height: 1.8rem;
+	font-size: 0.32rem;
+	line-height: 0.6rem;
 	color: #fff;
-	width: 80%;
-	margin: 8rem auto 2rem;
+	width: 5.8rem;
+	margin: auto;
+	margin-bottom: 0.65rem;
+	/*margin: 8rem auto 2rem;*/
 }
 .choice {
 	width: 70%;
@@ -243,8 +246,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .choice li{
 	margin-bottom:20px;
-	height: 2.5rem;
-	line-height: 2.5rem;
+	height: 0.6rem;
+	line-height: 0.6rem;
 	text-align: center;
 	color: #333;
 	background-color: #fff;
@@ -254,7 +257,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 .choice .cho-error {
-	background-color: #ccc;
+	background-color: #bbb;
+	color: #fff;
 }
 .choice .right-anwser {
 	color: #fff;
@@ -268,7 +272,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	flex: 1;
 }
 .choice li b,.choice li i{
-	width: 3.5rem;
+	width: 0.75rem;
 }
 .choice .choosed i{
 	background-image: url('../images/sprite-icon@2x.png');
@@ -296,16 +300,16 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: 3.5rem;
+	height: 0.9rem;
 	background-color: #fff;
 }
 .next-que>div{
 	align-items: center;
-	line-height: 3.5rem;
+	line-height: 0.9rem;
 }
 .next-que .items{
 	flex: 1;
-	padding-left: 3rem;
+	padding-left: 0.4rem;
 	background-image: url(../images/sprite-icon@2x.png);
 	background-repeat: no-repeat;
 	background-position: -21rem -3rem;
@@ -313,7 +317,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	font-size: 110%;
 }
 .next-que .btn-next {
-	width: 6rem;
+	width: 1.76rem;
 	text-align: center;
 	color: #fff;
 	background-color: rgb(12,171,245);
@@ -333,8 +337,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .question .mult i{
 	background-image: url(../images/sprite-icon@2x.png);
-	background-size: 600% 600%;
-	background-position: 8.1rem -0.5rem;
+	background-size: 605% 600%;
+	background-position: 8.2rem -0.5rem;
 }
 
 .question i{
@@ -351,11 +355,11 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-repeat: no-repeat;	
 	background-position: 0rem 0rem;
 	background-size: 100%;
-	padding-top:11rem;
+	padding-top:3.23rem;
 }
 .bg{
 	background-color: #fff;
-	padding: 1rem 2rem;
+	padding: 0.84rem;
 	border-radius: 12px;
 }
 .content-wrap{
@@ -366,30 +370,32 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 .grade .header{
-	padding-bottom: 0.8rem;
+	padding-bottom: 0.3rem;
 	border-bottom: 2px dotted #eee;
-	margin-bottom: 1.4rem;
+	margin-bottom: 0.3rem;
 }
 .grade .used-time i{
 	display: inline-block;
 	background-image: url(../images/sprite-icon@2x.png);
 	background-position: -1rem 2.5rem;
 	vertical-align: middle;
-	background-size: 1400% 800%;
-	height: 1.4rem;
-	padding-left: 1.7rem;
+	background-size: 1550% 800%;
+	height: 0.24rem;
+	/*padding-left: 1.7rem;*/
 }
 .grade .result{
 	display: flex;
 	display: -webkit-flex;
-	padding-bottom: 2rem;
+	padding-bottom: 0.8rem;
 
 }
 .grade .result>div{
 	flex:1;
 }
 .result .count .w,.result .corret .w{
-	width: 70%;
+	font-size: 0.4rem;
+	width: 0.98rem;
+	height: 1.01rem;
 	margin: auto;	
 	padding-left: 4px;
 	padding-right: 4px;
@@ -407,14 +413,14 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #ff4740;
 	font-weight: bold;
 	font-family: arial;
-	font-size: 120%;
-	padding-top: 0.6rem;
+	font-size: 0.4rem;
+	padding-top: 0.19rem;
 }
 .result .n{
 	color: #444;
 	text-align: center;
-	font-size: 80%;
-	padding-bottom: 0.6rem;
+	font-size: 0.2rem;
+	padding-bottom: 0.19rem;
 }
 .result .inner{
 	background-color: #f8f8f8;
@@ -433,16 +439,16 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 .btn-reanwser{
-	width: 70%;
 	color: #fff;
 	font-size: 105%;
 	text-align: center;
 	border-radius: 6px;
 	margin:auto;
 	background-color: #ffc017;
-	line-height: 2.7rem;
-	height: 2.7rem;
-	margin-top: -1.4rem;
+	line-height: 0.8rem;
+	height: 0.8rem;
+	width: 5rem;
+	margin-top: -0.4rem;
 }
 
 
@@ -465,6 +471,10 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	margin: auto;
 	color: #444;
 	margin-bottom: 1rem;
+}
+.ranklist ul{
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 .ranklist li{
 	display: flex;

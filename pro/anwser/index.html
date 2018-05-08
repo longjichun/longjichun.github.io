@@ -34,7 +34,7 @@
         </div>
     </div>
 </section>
-<section id="sec2" class="">
+<section id="sec2" class="hide">
     <div class="content">
         <div class="header"></div>
         <div class="forminfo">
@@ -118,7 +118,7 @@
         <div class="btn-next">下一题</div>
     </div>
 </section>
-<section id="sec4" class="hide">
+<section id="sec4" class="">
     <div class="grade content-wrap">
         <div class="bg"> 
             <div class="header ov">
@@ -135,7 +135,7 @@
                 <div class="count">
                     <div class="w">
                         <div class="inner">
-                            <div class="num">50</div>
+                            <div class="num" >50</div>
                             <div class="n">分数</div>
                         </div>
                     </div>
@@ -144,8 +144,8 @@
                 <div class="rank">
                     <div class="w">
                         <div class="inner">
-                            <div class="num">50</div>
-                            <div class="n">排名</div>
+                            <div class="num" style="font-size: 0.5rem;">50</div>
+                            <div class="n" style="padding-bottom: 0rem;">排名</div>
                         </div>
                     </div>
                 </div>
@@ -197,27 +197,53 @@
     </div>
 </div>
 <script type="text/javascript">
+    var BASEURL = 'http://test.app.onlyred.net/'
+    var getInitUrl = 'rednetMoment-http/rednetApi.opx?param='
+
+    var ifCanStart = false;
+    var param = {
+        "header": {"userId":"38","version":"6.0"},
+        "method": "answerInfo",
+        "myParams":[19],
+        "service": "cn.rednet.moment.services.AnswerApi",
+        "uuid": "196CC2B6D81F4DAE9DCB1164F878334D"
+    }
+    function init() {
+
+    }
+    function ifInAnwserPeriod() {
+
+    }
+
     router()
     function router() {
+
         $("#fillMyInfo").click(function(){
             $("section").hide();
             $("#sec1").show()
         })
 
         $("#startAnser").on("click",function(){
+            var cookie = 'true'
             $("section").hide()
-            $("#sec3").show()
+            if(cookie) {
+                $("#sec3").show()
+            } else {
+                $("#sec1").show()
+            }
+            
         })
         $(".btn-next").click(function(){
             $("section").hide()
             $("#sec4").show()
         })
+        $(".btn-reanwser").click(function(){
+            $("section").hide()
+            $("#sec3").show()
+            totalTime()
+        })
     }
 
-    function showModule(n){
-        $("section").hide()
-        $("section").eq(n).show()
-    }
     function fillNum(n) {
         if(n<10) {
             return '0'+n;
@@ -252,25 +278,53 @@
     }());
 
     $("#startAnser").on("click",function(){
-        showModule(2)
         runAnwser()
     });
+
+    var usedTime = 0;
+    var runningTime = null;
+
     function totalTime() {
-        var n = 0;
+        usedTime = 0;
+        clearTimeout(runningTime)
+        $(".header-time span").eq(0).html('00:00:00')
         setTimeout(function repeat() {
-            var str = formatTime(n++)
+            var str = formatTime(usedTime++)
             $(".header-time span").eq(0).html(str)
             if(true) {
-                setTimeout(repeat,1000)
+                runningTime = setTimeout(repeat,1000)
             }
         },1000)
     }
     function runAnwser() {
 
         totalTime()
+        queryQuestion()
+        anwserEventBind()
+    }
+    function queryQuestion() {
+        var url = 'rednetMoment-http/rednetApi.opx?'
+        var param = {
+                "header":{"userId":"38","version":"6.0"},
+                "method":"initAnswerInfoList",
+                "myParams":[19],
+                "service":"cn.rednet.moment.services.AnswerApi",
+                "uuid":"196CC2B6D81F4DAE9DCB1164F878334D"
+            };
+        $.ajax({
+            url: BASEURL+url+enodeURI(JSON.stringify(param)),
+            type: "get",
+            dataType:"jsonp",
+            jsonp: 'jsoncallback',
+            jsonpCallback:"success_jsonpCallback",
+            success: function(res){
 
+            }
+        })
+    }
+    function anwserEventBind() {
         var usedTime = 0;
-        $(".choice ul li").on("click",function(e){
+        $(".choice ul li").off("click").on("click",function(e){
             if(true) {
                 // 单选在已选择的情况下，选择其它的答案，需要取消当前的
                 $(".choosed").removeClass("choosed")
@@ -278,7 +332,7 @@
             $(this).addClass('choosed')
             ifNext()
         })
-        $(".choosed").on("click",function(e){
+        $(".choosed").off("click").on("click",function(e){
             $(this).removeClass("choosed")
             ifNext()
         })
@@ -289,11 +343,11 @@
                 $(".toNext").hide()
             }
         }
-        function examAnwser() {
 
-        }
+        $(".toNext").click(function(){
+            // 点击下一题
+        })
     }
-
 
     /*
     排名
