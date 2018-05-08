@@ -331,7 +331,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	color: #bbb;
 }
 .question .single i{
-	background-position: 0.1rem -0.1rem;
+	background-position: -3.5rem -0.19rem;
 }
 .question .mult i{
 	background-position: -2.8rem -0.19rem;
