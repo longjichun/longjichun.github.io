@@ -26,7 +26,10 @@ section{
 	height: 100%;
 
 }
- input::-webkit-input-placeholder{
+img{
+	background-repeat: no-repeat;
+}
+input::-webkit-input-placeholder{
     color:#666;
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
@@ -37,6 +40,12 @@ input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
     color:#666;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
 }
 .ov{
 	overflow: hidden;
@@ -337,9 +346,178 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 /*答题部分 end*/
 
 
+#sec4{
+	background-image: url(../images/page-title@2x.png);
+	background-repeat: no-repeat;	
+	background-position: 0rem 0rem;
+	background-size: 100%;
+	padding-top:11rem;
+}
+.bg{
+	background-color: #fff;
+	padding: 1rem 2rem;
+	border-radius: 12px;
+}
 .grade{
-	border:1px solid  #c32229;
-	border-radius: 6px;
+	border-radius: 12px;
+	width: 90%;
+	margin: auto;
+	border:4px solid rgba(255,255,255,0.1);
+}
+
+.grade .header{
+	padding-bottom: 0.8rem;
+	border-bottom: 2px dotted #eee;
+	margin-bottom: 1.4rem;
+}
+.grade .used-time i{
+	display: inline-block;
+	background-image: url(../images/sprite-icon@2x.png);
+	background-position: -1rem 2.5rem;
+	vertical-align: middle;
+	background-size: 1400% 800%;
+	height: 1.4rem;
+	padding-left: 1.7rem;
+}
+.grade .result{
+	display: flex;
+	display: -webkit-flex;
+	padding-bottom: 2rem;
 
 }
+.grade .result>div{
+	flex:1;
+}
+.result .count .w,.result .corret .w{
+	width: 70%;
+	margin: auto;	
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.result .count .w{
+	border-top: 3px solid #ff8801;
+
+}
+.result .corret .w{
+
+	border-top: #15CE84 3px solid;
+}
+.result .num{
+	text-align: center;
+	color: #ff4740;
+	font-weight: bold;
+	font-family: arial;
+	font-size: 120%;
+	padding-top: 0.6rem;
+}
+.result .n{
+	color: #444;
+	text-align: center;
+	font-size: 80%;
+	padding-bottom: 0.6rem;
+}
+.result .inner{
+	background-color: #f8f8f8;
+	margin: auto;
+	box-shadow:0px 3px 2px #bbb;
+}
+
+.rank .w{
+	border-top: rgb(61,147,244) 3px solid;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.rank .inner {
+	padding-bottom: 0.4rem;
+	font-size: 140%;
+}
+
+.btn-reanwser{
+	width: 70%;
+	color: #fff;
+	font-size: 105%;
+	text-align: center;
+	border-radius: 6px;
+	margin:auto;
+	background-color: #ffc017;
+	line-height: 2.7rem;
+	height: 2.7rem;
+	margin-top: -1.4rem;
+}
+
+
+
+/*排名*/
+
+#sec5{
+	background-image: url(../images/page-title@2x.png);
+	background-repeat: no-repeat;	
+	background-position: 0rem 0rem;
+	background-size: 100%;
+	padding-top:11rem;
+}
+
+.ranklist{
+	border-radius: 10px;
+	background-color: #fff;
+	border:4px solid #b41a24;
+	width: 90%;
+	margin: auto;
+	color: #444;
+	margin-bottom: 1rem;
+}
+.ranklist li{
+	display: flex;
+	display: -webkit-flex;
+	height: 3rem;
+	line-height: 3rem;
+}
+.ranklist li>*{
+	flex: 1;
+	align-items: center;
+	text-align: center;
+}
+.ranklist li i{
+	flex: 0.5;
+}
+.ranklist li span:nth-of-type(1) {
+	flex: 1.5;
+}
+.ranklist .per-time{
+	flex: 1.5;
+}
+.ranklist .forward{
+    color: #ed3837;	
+}
+.ranklist .forward i{
+	background-image: url(../images/sprite-icon@2x.png);
+    background-size: 710% 200%;
+}
+.ranklist li:nth-of-type(1) i{
+    background-position: -2.4rem -3.5rem;
+}
+.ranklist li:nth-of-type(2) i{
+    background-position: -4.6rem -3.5rem;
+}
+.ranklist li:nth-of-type(3) i{
+    background-position: -6.8rem -3.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

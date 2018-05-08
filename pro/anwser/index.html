@@ -22,7 +22,7 @@
 <!-- 强制关注公众号 -->
 <!-- Skin hook模块 -->
 <link rel="stylesheet" type="text/css" href="css/hook.css" />
-<section id="sec1" class="hid">
+<section id="sec1" class="hide">
     <div class="operation">
         <a id="startAnser" class="sure" href="javascript:void(0)">开始答题</a>
         <div class="links">
@@ -119,7 +119,107 @@
     </div>
 </section>
 <section id="sec4" class="hide">
-    <div class="grade"></div>
+    <div class="grade">
+        <div class="bg"> 
+            <div class="header ov">
+                <div class="fl name">
+                    <span>姓名:</span>
+                    <i>王二</i>
+                </div>
+                <div class="fr used-time">
+                    <i></i>
+                    <span>00:00:00</span>
+                </div>
+            </div>
+            <div class="result">
+                <div class="count">
+                    <div class="w">
+                        <div class="inner">
+                            <div class="num">50</div>
+                            <div class="n">分数</div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="rank">
+                    <div class="w">
+                        <div class="inner">
+                            <div class="num">50</div>
+                            <div class="n">排名</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="corret">
+                    <div class="w">
+                        <div class="inner">
+                            <div class="num">50</div>
+                            <div class="n">正确率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-reanwser">
+        再答一次
+    </div>
+    <div class="links">
+        <a href="#">查看排行</a>
+        <span>|</span>
+        <a href="#">我要学习</a>
+        <span>|</span>
+        <a href="./rule.html">活动规则</a>
+    </div>
+</section>
+<section id="sec5">
+    <div class="ranklist">
+        <ul>
+            <li class="forward">
+                <i></i>
+                <span>卷卷心</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+            <li class="forward">
+                <i></i>
+                <span>卷卷心</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+            <li class="forward">
+                <i>1</i>
+                <span>卷卷心</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+            <li>
+                <i>4</i>
+                <span>卷卷心</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+            <li>
+                <i></i>
+                <span>卷卷心</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+            <li>
+                <i>1</i>
+                <span>卷卷心卷卷</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+            <li>
+                <i>4</i>
+                <span>卷卷心</span>
+                <span>100分</span>
+                <span class="per-time">00:00:00</span>
+            </li>
+
+        </ul>
+    </div>
+
 </section>
 <script type="text/javascript">
     function showModule(n){
@@ -201,6 +301,18 @@
 
         }
     }
+
+
+    /*
+    排名
+    */
+    (function(){
+        var $three = $(".ranklist i");
+        $three.eq(0).html("");
+        $three.eq(1).html("");
+        $three.eq(2).html("");
+    }())
+
 
 </script>
 </body>
