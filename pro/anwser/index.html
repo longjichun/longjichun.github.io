@@ -102,8 +102,8 @@
     </div>
     <div class="choice">
         <ul>
-            <!-- choosed 已选择     right-anwser 正确答案       cho-right 选择正确 -->
-            <li class="choosed right-anwser cho-right"><i class="spritIcon"></i><span>选择一个正确的</span><b class="spritIcon"></b></li>
+            <!-- choosed 已选择     right-anwser 正确答案       选择正确 -->
+            <li class="choosed 1"><i class="spritIcon"></i><span>选择一个正确的</span><b class="spritIcon"></b></li>
             <li class="choosed cho-error"><i  class="spritIcon"></i><span>选择一个错误的</span><b class="spritIcon"></b></li>
             <li class="right-anwser"><i class="spritIcon"></i><span>没有选择正确的</span><b class="spritIcon"></b></li>
             <li><i class="spritIcon"></i><span>没有选择错误的</span><b class="spritIcon"></b></li>
@@ -269,7 +269,7 @@
                 str[1] = d.getUTCHours() + 24*parseInt(sub/(24*60*60*1000));
                 str[5] = d.getMinutes()
                 str[9] = d.getSeconds()
-                $("#startAnser").html(str.join("")).addClass("to-anwser cho-right")
+                $("#startAnser").html(str.join("")).addClass("to-anwser")
                 setTimeout(rerender,1000)
             } else {
                 $("#startAnser").removeClass("to-anwser").html("开始答题")
@@ -322,7 +322,12 @@
             }
         })
     }
-    function anwserEventBind() {
+    var currentQuesInd = 0;
+    function renderQues(){
+
+    }
+    
+    function anwserEventBind(arr) {
         var usedTime = 0;
         $(".choice ul li").off("click").on("click",function(e){
             if(true) {
@@ -333,10 +338,13 @@
             ifNext()
         })
         $(".choosed").off("click").on("click",function(e){
+            // 已选择的情况下，又点击，表示取消选择
             $(this).removeClass("choosed")
             ifNext()
         })
+
         function ifNext() {
+            // 是否显示按钮  下一题
             if( $(".choice").find(".choosed").length ) {
                 $(".toNext").show()
             } else {
@@ -346,6 +354,8 @@
 
         $(".toNext").click(function(){
             // 点击下一题
+            currentQuesInd++;
+            renderQues()
         })
     }
 
