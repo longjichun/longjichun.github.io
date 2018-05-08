@@ -456,6 +456,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 .btn-reanwser{
+	font-weight: bold;
 	color: #fff;
 	font-size: 105%;
 	text-align: center;
@@ -481,10 +482,10 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 
 .ranklist{
-	border-radius: 10px;
+	border-radius: 0.2rem;
 	background-color: #fff;
 	border:4px solid #b41a24;
-	width: 90%;
+	width: 6.9rem;
 	margin: auto;
 	color: #444;
 	margin-bottom: 1rem;
