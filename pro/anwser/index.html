@@ -15,7 +15,7 @@
     <!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <!--<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>-->
-    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+    <script type="text/javascript" src="js/common.js"></script>
 
 </head>
 <body>
@@ -192,35 +192,34 @@
                 <span>100分</span>
                 <span class="per-time">00:00:00</span>
             </li>
-            <li>
-                <i>4</i>
-                <span>卷卷心</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li>
-                <i></i>
-                <span>卷卷心</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li>
-                <i>1</i>
-                <span>卷卷心卷卷</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li>
-                <i>4</i>
-                <span>卷卷心</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-
         </ul>
     </div>
 
 </section>
+
+<div class="share">
+    <div>
+        <ul>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/weibo.png" />
+                <span>新浪微博</span>
+            </li>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/wechat.png" />
+                <span>微信好友</span>
+            </li>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/pyq.png" />
+                <span>微信朋友圈</span>
+            </li>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/qq.png" />
+                <span>QQ好友</span>
+            </li>
+        </ul>
+        <div>取消</div>
+    </div>
+</div>
 <script type="text/javascript">
     function showModule(n){
         $("section").hide()
@@ -307,10 +306,67 @@
     排名
     */
     (function(){
-        var $three = $(".ranklist i");
-        $three.eq(0).html("");
-        $three.eq(1).html("");
-        $three.eq(2).html("");
+        shareLink()
+        function shareLink() {
+            $(".share img, .share span").click(function() {
+                var index = $(this).parent().index(), name = null;
+                switch (index) {
+                    case 0://新浪微博
+                        name = "SinaWeiboShare";
+                        break;
+                    case 1://微信好友
+                        name = "WeixinFriendShare";
+                        break;
+                    case 2://微信朋友圈
+                        name = "WeixinJSShare";
+                        break;
+                    case 3://QQ好友
+                        name = "QQShare";
+                        break;
+                    default:
+                        name = "WeixinJSShare";
+                        break;
+                }
+                if (name) {
+                    if (ostype == "android") {
+                        if(shareFlag)
+                            jsBridge.postNotification(name, '{"activity_id": "17", "title": "学习防空防灾知识,掌握防护生存技能", "link": "//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid + '&achvId=' + achvId +'&ostype=' + ostype + '", "desc": "郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。", "img_url": "//moment.rednet.cn/common/img/RF-logo.png", "phoneNum": "", "is_update": "0"}');
+                        else{
+                            jsBridge.postNotification(name, '{"activity_id": "17", "title": "学习防空防灾知识,掌握防护生存技能", "link": "//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid  +'&ostype=' + ostype + '", "desc": "郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。", "img_url": "//moment.rednet.cn/common/img/RF-logo.png", "phoneNum": "", "is_update": "0"}');
+                        }
+
+                    } else if (ostype == "ios") {
+                        if(shareFlag)
+                            jsBridge.postNotification(name, {activity_id: '17', title: '学习防空防灾知识,掌握防护生存技能', link: '//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid + '&achvId=' + achvId +'&ostype=' + ostype, desc: '郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。', img_url: '//moment.rednet.cn/common/img/RF-logo.png', phoneNum: '', is_update: '0'});
+                        else{
+                            jsBridge.postNotification(name, {activity_id: '17', title: '学习防空防灾知识,掌握防护生存技能', link: '//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid  +'&ostype=' + ostype, desc: '郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。', img_url: '//moment.rednet.cn/common/img/RF-logo.png', phoneNum: '', is_update: '0'});
+                        }
+
+                    }
+                    $(".share").hide();
+                }
+            });
+            $(".share>div>div").click(function() {
+                $(".share").hide();
+            });
+        }
+
+        function fillList(arr) {
+            var temp = ['<li class="','','">','<i>','','</i>','<span>',  ''  ,'</span><span>','','</span><span class="per-time">','','</span></li>']
+            var str = ''
+            for(var i = 0,len = arr.length;i<len;i++ ) {
+                var val = arr[i]
+                if(i<3) {
+                    temp[1] = ''
+                    temp[4] = ''
+                }
+                temp[7] = val.userName
+                temp[9] = val.scoreCount
+                temp[11] = formatDuring(val.utilityTime)
+                str = str + temp.join("")
+            }
+            $(".ranklist ul").html(str)
+        }
     }())
 
 

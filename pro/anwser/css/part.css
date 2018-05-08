@@ -482,25 +482,61 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 }
 .ranklist li span:nth-of-type(1) {
 	flex: 1.5;
+	text-align: left;
+    text-indent: 0.8rem;
 }
 .ranklist .per-time{
 	flex: 1.5;
 }
 .ranklist .forward{
     color: #ed3837;	
+    font-weight: bold;
 }
 .ranklist .forward i{
 	background-image: url(../images/sprite-icon@2x.png);
     background-size: 710% 200%;
 }
 .ranklist li:nth-of-type(1) i{
-    background-position: -2.4rem -3.5rem;
+    background-position: -2.3rem -3.5rem;
 }
 .ranklist li:nth-of-type(2) i{
     background-position: -4.6rem -3.5rem;
 }
 .ranklist li:nth-of-type(3) i{
-    background-position: -6.8rem -3.5rem;
+    background-position: -6.9rem -3.5rem;
+}
+
+.share>div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+.share>div>ul>li {
+    float: left;
+    width: 23%;
+    text-align: center;
+}
+.share>div>ul>li>img {
+    width: 50%;
+    margin-top: 25%;
+}
+.share>div>ul>li>span {
+    display: inline-block;
+    padding-top: 3%;
+    margin-bottom: 25%;
+    color: #000000;
+    font-size: 0.3rem;
+}
+.share>div>div {
+    clear: both;
+    display: block;
+    padding: 3% 0;
+    color: #000000;
+    font-size: 0.425rem;
+    border-top: #CCCCCC 1px solid;
 }
 
 
