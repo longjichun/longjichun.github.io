@@ -37,22 +37,7 @@
     <div class="gap80"></div>
 </section>
 <script>
-    function fillList(arr) {
-            var temp = ['<li class="','','">','<i>','','</i>','<span>',  ''  ,'</span><span>','','</span><span class="per-time">','','</span></li>']
-            var str = ''
-            for(var i = 0,len = arr.length;i<len;i++ ) {
-                var val = arr[i]
-                if(i<3) {
-                    temp[1] = ''
-                    temp[4] = ''
-                }
-                temp[7] = val.userName
-                temp[9] = val.scoreCount
-                temp[11] = formatDuring(val.utilityTime)
-                str = str + temp.join("")
-            }
-            $(".ranklist ul").html(str)
-        }
+
 </script>
 </body>
 </html>

@@ -1,19 +1,34 @@
 var BASEURL = 'http://test.app.onlyred.net/'
-var getInitUrl = 'rednetMoment-http/rednetApi.opx?param='
+var bathpath = 'rednetMoment-http/rednetApi.opx?param='
 
+var activId = 19
 var ifCanStart = false;
-var param = {
-    "header": {"userId":"38","version":"6.0"},
-    "method": "answerInfo",
-    "myParams":[19],
-    "service": "cn.rednet.moment.services.AnswerApi",
-    "uuid": "196CC2B6D81F4DAE9DCB1164F878334D"
-}
-function init() {
 
+var UUID = uuid;
+var USERID = userid;
+
+var baseParam = {
+    "header": {"userId":UUID,"version":"6.0"},
+    "service": "cn.rednet.moment.services.AnswerApi",
+    "uuid": USERID
+}
+baseParam.myParams = [activId]
+
+function init() {
+    var initParam = $.extend(baseParam, { "method": "answerInfo"} )
+    var d = new Date().getTime()
+    var userStatus, questionStatus ;
+    jsonpReq(initParam,function(res){
+        questionStatus = res.status;
+        userStatus = res.EnrollStatus;
+        ifInAnwserPeriod();
+        router();
+    })
 }
 function ifInAnwserPeriod() {
-
+    if( questionStatus != 1) {
+        $("#startAnser").html("不在答题时段内");
+    }
 }
 
 (function(){
@@ -38,37 +53,54 @@ function ifInAnwserPeriod() {
 
 
 /*路由*/
-(function router() {
+function router() {
 
-    // $("#fillMyInfo").click(function(){
-    //     $("section").hide();
-    //     $("#sec1").show()
-    // })
 
     $("#startAnser").on("click",function(){
-        var cookie = 'true'
-        $("section").hide()
-        if(cookie) {
-            $("#sec3").show()
+        if(questionStatus != 1) {
+            return;
         } else {
-            $("#sec1").show()
+            if( userStatus == 1 ) {
+                // 已报名
+                $("section").hide()
+                runAnwser();
+                $("#sec3").show()
+            } else {
+                $("section").hide()
+                $("#sec2").show()
+            }
+            
         }
         
     })
-    // $(".btn-next").click(function(){
-    //     $("section").hide()
-    //     $("#sec4").show()
-    // })
+
     $(".btn-reanwser").click(function(){
         $("section").hide()
         $("#sec3").show()
         totalTime()
     })
-}());
+}
 /*路由*/
 
 
 /* 工具函数 */
+function jsonpReq(param,succfn,failfn) {
+     $.ajax({
+        url: BASEURL+bathpath+JSON.stringify(param),
+        type: "get",
+        dataType:"jsonp",
+        jsonp: 'jsoncallback',
+        jsonpCallback:"success_jsonpCallback",
+        success: function(res){
+            var body = strTojson(res.body);
+            succfn(body)
+        },
+        error: function(){
+            failfn()
+        }
+    })   
+}
+
 function fillNum(n) {
     if(n<10) {
         return '0'+n;
@@ -168,42 +200,25 @@ function strTojson(str) {
             alert("请填写正确的手机号")
             return;
         }
-        var param = {};
+        var param = {myParams:[activId, 2, name, pho, "",  royal+" "+zone ] };  // 单位名称尚未加入
         goRegister(param)
     })
     
     function goRegister(param){
-        $.ajax({
-            url: regAPI,
-            type: "get",
-            async: false,
-            dataType: "jsonp",
-            jsonp: 'jsoncallback',
-            jsonpCallback:"success_jsonpCallback",
-            success: function(data){
-                setTimeout(function() {
-                  $("#mask").hide();
-                }, 300);
-                regbtn_flag=true;
-                var data = data.body;
-                if (data){
-                  switch (data.status) {
-                      case "-1": //非法提交
-                          alert("系统内部错误");
-                          break;
-                      case "0": // 注册失败
-                          alert("注册失败")
-                          break;
-                      case "1": // 注册成功
-                          registerSucc()
-                          break;
-                      default:
-                          break;
-                  }
-                }else{
-                  alert("系统内部错误");
-                }
-        }});
+        var registerUrl = $.extend(baseParam, { "method": "addActivityEnroll"} )
+        jsonpReq(registerUrl, function(res){
+            if(res.status == 1) {
+                // 注册成功
+                $("section").hide()
+                $("#sec3").show()
+                runAnwser()
+            } else {
+                // 注册失败
+                alert("注册失败")
+            }
+        },function(){
+
+        })
     }
     function registerSucc(){
         console.log("register succ");
@@ -235,43 +250,40 @@ function totalTime() {
     },1000)
 }
 function runAnwser() {
-    totalTime()
     queryQuestion()
 }
 
 var currentQuesInd = 0;
 var questions = [];
 var questLen = 0;
+var achvId; // 答题批次
+var btType; // 题目类型
 var nextClicked = true;
 function queryQuestion() {
-    var url = 'rednetMoment-http/rednetApi.opx?param='
-    var param = {
-        "header":{"userId":"38","version":"6.0"},
-        "method":"initAnswerInfoList",
-        "myParams":[17],
-        "service":"cn.rednet.moment.services.AnswerApi",
-        "uuid":"196CC2B6D81F4DAE9DCB1164F878334D"
-    };
-    $.ajax({
-        url: BASEURL+url+JSON.stringify(param),
-        type: "get",
-        dataType:"jsonp",
-        jsonp: 'jsoncallback',
-        jsonpCallback:"success_jsonpCallback",
-        success: function(res){
-            var body = strTojson(res.body);
-            questions = body.answerList;
-            questLen = body.answerCount;
-            $("#sec3 .total").text( fillNum(questLen) );
-            $("#sec3 .current").text( fillNum(currentQuesInd+1) );
-            renderQues();
-        }
+    var queryQuestionUrl = $.extend(baseParam, { "method": "initAnswerInfoList"} )
+    jsonpReq(queryQuestionUrl,function(res){
+        // 成功请求到题目
+        questions = res.answerList;
+        questLen = res.answerCount;
+        achvId = res.achvId;
+        $("#sec3 .total").text( fillNum(questLen) );
+        $("#sec3 .current").text( fillNum(currentQuesInd+1) );
+        totalTime()
+        renderQues();
     })
 }
 
 function renderQues(){
     // 渲染题目
     var item = questions[currentQuesInd]
+
+    btType = item.btType;
+    if(btType == 1) {
+        $(".question p").removeClass("mult").addClass("single");
+    } else {
+        $(".question p").removeClass("single").addClass("mult");
+    }
+
     $(".question span").eq(0).html( item.btTitle )
     var tempStr = '<li class=""><i class="spritIcon"></i><span>{{}}</span><b class="spritIcon"></b></li>'
     var choiceStr = ''
@@ -314,17 +326,32 @@ function anwserEventBind(arr) {
         // 点击下一题
         if(nextClicked) return;
         nextClicked = true;
-        examAnwser();
-        setTimeout(function(){
-            if(questLen == ++currentQuesInd) {
-                // 已经全部答完
-                $("section").hide()
-                $("#sec4").show()
-            } else {
-                renderQues();
-            }
 
-        },1000)
+        var examUrl = { "method": "submissionAnswerInfo" };
+        var param = { myParams:[activId, achvId, questions[currentQuesInd].id, questions[currentQuesInd].btXx ] };
+        param = $.extend(examUrl, param)
+        jsonpReq(param, function(res){
+            var corretAnwser = res.answer;
+            var choiceMap = {
+                "A":0,
+                "B":1,
+                "C":2,
+                "D":3
+            };
+
+            setTimeout(function(){
+                if(questLen == ++currentQuesInd) {
+                    // 已经全部答完
+                    $("section").hide()
+                    $("#sec4").show()
+                    personOut()
+                } else {
+                    renderQues();
+                }
+
+            },1000)
+        })
+        
         
     })
 }
@@ -335,14 +362,27 @@ function examAnwser() {
 
 /* 答题部分 */
 
-(function(){
+function personOut(){
     // 个人成绩
     var name = '';
     var count = '';
     var rank = '';
     var rate = '';
+    var used = 0;
+    var examUrl = { "method": "submissionAnswerAchv" };
+    var param = {myParams:[activId, achvId, activId] }; 
+    jsonpReq($.extend(examUrl,param), function(res){
+        rank = res.achvRank;
+        used = formatTime(+res.utilityTime);
+        count = res.scoreCount;
+        rate = res.winRate || ( (+res.correctCount) / (+res.questionCount) ).toFiexd(2);
 
-}());
+        $(".used-time span").html(used)
+        $(".result .count .num")html(count)
+        $(".rank .num").html(rank)
+        $(".corret .num").html(rate)
+    });
+};
 
 
 /*
