@@ -342,7 +342,7 @@ function examAnwser() {
     var rank = '';
     var rate = '';
 
-}())
+}());
 
 
 /*
