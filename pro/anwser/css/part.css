@@ -27,6 +27,12 @@ section{
 	height: 100%;
 
 }
+.spritIcon{
+	background-image: url(../images/sprite-icon@2x.png);
+    background-repeat: no-repeat;
+    background-size: 4.9rem 2.1rem;
+    background-position: 2rem;
+}
 img{
 	background-repeat: no-repeat;
 }
@@ -81,7 +87,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .choice {
 
 }
-# listartAnser {
+#listartAnser {
 }
 .sure {
 	border-radius: 5px;
@@ -275,22 +281,13 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	width: 0.75rem;
 }
 .choice .choosed i{
-	background-image: url('../images/sprite-icon@2x.png');
-	background-repeat: no-repeat;
-	background-size: 550% 300%;
-	background-position: 0.5rem -2.5rem;
+	background-position: 0.0rem -0.68rem;
 }
 .choice .cho-error b{
-	background-image: url('../images/sprite-icon@2x.png');
-	background-repeat: no-repeat;
-	background-size: 550% 300%;
-	background-position: -5.5rem -2.5rem;	
+	background-position: -1.5rem -0.68rem;	
 }
-.choice .cho-right b {
-	background-image: url('../images/sprite-icon@2x.png');
-	background-repeat: no-repeat;
-	background-size: 550% 300%;
-	background-position: -2.5rem -2.5rem;		
+.choice .right-anwser b {
+	background-position: -0.8rem -0.68rem;		
 }
 
 .next-que{
@@ -531,17 +528,16 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     font-weight: bold;
 }
 .ranklist .forward i{
-	background-image: url(../images/sprite-icon@2x.png);
-    background-size: 710% 200%;
+	
 }
 .ranklist li:nth-of-type(1) i{
-    background-position: -2.3rem -3.5rem;
+    background-position: -0.8rem -1.3rem;
 }
 .ranklist li:nth-of-type(2) i{
-    background-position: -4.6rem -3.5rem;
+    background-position: -1.5rem -1.3rem;
 }
 .ranklist li:nth-of-type(3) i{
-    background-position: -6.9rem -3.5rem;
+    background-position: -2.2rem -1.3rem;
 }
 
 .share>div {
