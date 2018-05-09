@@ -40,20 +40,32 @@
         <div class="forminfo">
             <ol>
                 <li>
-                    <div class="icon"></div>
+                    <div class="icon spritIcon"></div>
                     <div class="gap">|</div>
                     <div class="ipt">
                         <input type="text" placeholder="请输入您的真实姓名">
                     </div>
                 </li>
                 <li>
-                    <div class="icon"></div>
+                    <div class="icon spritIcon"></div>
                     <div class="gap">|</div>
                     <div class="ipt sel">
-                        <select placeholder="请输入您的真实姓名">
-                            <option>请选择您所在的城市</option>
-                            <option>请选择您所在的城市</option>
-                            <option>请选择您所在的城市</option>
+                        <select id="royal">
+                            <option value="0">请选择市州</option>
+                            <option value="长沙">"长沙"</option>
+                            <option value="株洲">"株洲"</option>
+                            <option value="湘潭">"湘潭"</option>
+                            <option value="衡阳">"衡阳"</option>
+                            <option value="邵阳">"邵阳"</option>
+                            <option value="岳阳">"岳阳"</option>
+                            <option value="益阳">"益阳"</option>
+                            <option value="娄底">"娄底"</option>
+                            <option value="常德">"常德"</option>
+                            <option value="郴州">"郴州"</option>
+                            <option value="永州">"永州"</option>
+                            <option value="怀化">"怀化"</option>
+                            <option value="湘西">"湘西"</option>
+                            <option value="张家界">"张家界"</option>
                         </select>
                         <div class="sanjiao-p">
                             <div class="sanjiao-c"></div>
@@ -61,13 +73,11 @@
                     </div>
                 </li>
                 <li>
-                    <div class="icon"></div>
+                    <div class="icon spritIcon"></div>
                     <div class="gap">|</div>
                     <div class="ipt sel">
-                        <select placeholder='区域'>
-                            <option>请选择您所在的区域</option>
-                            <option>请选择您所在的区域</option>
-                            <option>请选择您所在的区域</option>
+                        <select id="zone">
+                            <option value="0">请选择区县</option>
                         </select>
                         <div class="sanjiao-p">
                             <div class="sanjiao-c"></div>
@@ -75,23 +85,24 @@
                     </div>
                 </li>
                 <li>
-                    <div class="icon"></div>
+                    <div class="icon spritIcon"></div>
                     <div class="gap">|</div>
                     <div class="ipt">
                         <input type="text" placeholder="请输入您的单位全称">
                     </div>
                 </li>
                 <li>
-                    <div class="icon"></div>
+                    <div class="icon spritIcon"></div>
                     <div class="gap">|</div>
                     <div class="ipt">
                         <input type="Number" placeholder="请输入您的手机号码">
                     </div>
                 </li>
             </ol>
-            <a href="javascript:void(0);" id="fillMyInfo" class="sure">确认</a>
         </div>
     </div>
+    <a href="javascript:void(0);" id="fillMyInfo" class="sure">确认</a>
+
 </section>
 <section id="sec3" class="ques-anw ov hid">
     <div class="header-time ov">
@@ -103,7 +114,7 @@
     <div class="choice">
         <ul>
             <!-- choosed 已选择     right-anwser 正确答案       选择正确 -->
-            <li class="choosed 1"><i class="spritIcon"></i><span>选择一个正确的</span><b class="spritIcon"></b></li>
+            <li class="choosed right-anwser"><i class="spritIcon"></i><span>选择一个正确的</span><b class="spritIcon"></b></li>
             <li class="choosed cho-error"><i  class="spritIcon"></i><span>选择一个错误的</span><b class="spritIcon"></b></li>
             <li class="right-anwser"><i class="spritIcon"></i><span>没有选择正确的</span><b class="spritIcon"></b></li>
             <li><i class="spritIcon"></i><span>没有选择错误的</span><b class="spritIcon"></b></li>
@@ -111,6 +122,7 @@
     </div>
     <div class="next-que">
         <div class="items">
+            <i class="spritIcon tran">tran</i>
             <i class="current">00</i>
             <i>/</i>
             <i class="total">00</i>
@@ -244,6 +256,9 @@
         })
     }
 
+
+
+
     function fillNum(n) {
         if(n<10) {
             return '0'+n;
@@ -256,6 +271,15 @@
             m = parseInt(n/60)
             s = n%60;
         return fillNum(h) +':'+ fillNum(m)+ ':' + fillNum(s)
+    }
+
+
+
+    function personalInfo() {
+        var arr = [{"child":["芙蓉区","天心区","岳麓区","开福区","雨花区","长沙县","望城区","宁乡市","浏阳市","长沙县网上群众工作部"],"royal":"  "},{"child":["荷塘区","芦淞区","石峰区","天元区","株洲县","攸县","茶陵县","炎陵县","醴陵市","云龙区"],"royal":"株洲"},{"child":["雨湖区","岳塘区","湘潭县","湘乡市","韶山市","昭山示范区"],"royal":"湘潭"},{"child":["雁峰区","珠晖区","蒸湘区","南岳区","石鼓区","衡阳县","衡南县","衡山县","衡东县","祁东县","耒阳市","常宁市"],"royal":"衡阳"},{"child":["双清区","大祥区","北塔区","邵东县","新邵县","邵阳县","隆回县","洞口县","绥宁县","新宁县","城步县","武冈市"],"royal":"邵阳"},{"child":["岳阳楼区","云溪区","君山区","岳阳县","华容县","湘阴县","平江县","汨罗市","临湘市"],"royal":"岳阳"},{"child":["资阳区","赫山区","南县","桃江县","安化县","沅江市"],"royal":"益阳"},{"child":["娄星区","双峰县","新化县","冷水江市","涟源市"],"royal":"娄底"},{"child":["武陵区","鼎城区","安乡县","汉寿县","澧县","临澧县","桃源县","石门县","津市"],"royal":"常德"},{"child":["北湖区","苏仙区","桂阳县","宜章县","永兴县","嘉禾县","临武县","汝城县","桂东县","安仁县","资兴市"],"royal":"郴州"},{"child":["零陵区","冷水滩区","祁阳县","东安县","双牌县","道县","江永县","宁远县","蓝山县","新田县","江华县","金洞管理区","回龙圩管理区"],"royal":"永州"},{"child":["鹤城区","中方县","沅陵县","辰溪县","溆浦县","会同县","麻阳县","新晃县","芷江县","靖州县","通道县","洪江市","洪江区"],"royal":"怀化"},{"child":["吉首市","泸溪县","保靖县","古丈县","永顺县","龙山县","凤凰县","花垣县"],"royal":"湘西"},{"child":["永定区","武陵源区","慈利县","桑植县"],"royal":"张家界"}];
+        $("#royal").on("change",function(v,n){
+            console.log(v,n)
+        })
     }
     (function(){
         // 开始首页

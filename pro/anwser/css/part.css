@@ -37,16 +37,16 @@ img{
 	background-repeat: no-repeat;
 }
 input::-webkit-input-placeholder{
-    color:#666;
+    color:#ccc;
 }
 input::-moz-placeholder{   /* Mozilla Firefox 19+ */
-    color:#666;
+    color:#ccc;
 }
 input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-    color:#666;
+    color:#ccc;
 }
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
-    color:#666;
+    color:#ccc;
 }
 .fl{
 	float: left;
@@ -63,8 +63,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .sanjiao-p{
 	border:6px solid transparent;
 	position: absolute;
-	right: 0.8rem;
-	top:0.6rem;
+	right: 0.5rem;
+	top:0.3rem;
 	border-top-color: #bfbfbf;
 	border-top-width: 8px;	
 }
@@ -127,94 +127,99 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 
 
 #fillMyInfo{
-	width: 80%;
-	margin: auto;	
-	height: 2.8rem;
-	line-height: 2.8rem;
+	width: 5rem;
+	margin: auto;
+	margin-top: -0.4rem;	
+	height: 0.9rem;
+	line-height: 0.9rem;
+}
+
+#sec2 {
+	background-color: rgba(0,0,0,0.5);
+	padding-top: 0.8rem;
 }
 .content{
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 2rem;
-	bottom: 3rem;
-	margin: auto;
-	width: 90%;
-	border:4px solid rgba(255,255,255,0.4);
-	border-radius: 8px;
+	background-color: #fff;
+    width: 6.9rem;
+    border-radius: 0.2rem;
+    margin: auto;
+    background-color: #fff;
+    border: 4px solid #b41a24;
+    margin: auto;
+    color: #444;
+
 }
 .content .header{
 	background-image: url('../images/banner-message.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
-	height: 7rem;
+	height: 2rem;
 }
 .content .forminfo{
-	padding-top: 2rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.5rem;
 	background-color: #fff;
-	position: absolute;
-	top:6rem;
-	right: 0;
-	left: 0;
-	bottom: 0;
 }
 .content .forminfo ol{
 	width: 80%;
 	margin: auto;
 }
 .content .forminfo ol>li{
-	height: 2.7rem;
+	height: 0.8rem;
 	border-radius: 5px;
-	padding: 0.3rem;
+	padding: 0.03rem;
 	background-color: #f5f5f5;
-	margin-bottom: 1.0rem;
+	margin-bottom: 0.5rem;
 	overflow: hidden;
 	display: flex;
 	display: -webkit-flex;
-	display: -webkit-flex;
 }
 .content .forminfo .ipt {
-	height: 2.0rem;
+	/*height: 2.0rem;*/
+	width: 4rem;
 	flex: 1;
 }
 .forminfo .ipt input, .forminfo .ipt select{
-	color: #666;
+	color: #ccc;
 	border-color: transparent;
 	background: transparent;
 	width: 100%;
 	height: 100%;
 	outline: none;
-	font-size: 105%;
+	font-size: 0.3rem;
 }
 
 .forminfo ol>li>div{
 	align-items: center;
-	line-height: 2.0rem;
+	justify-content: center;
+	display: flex;
+	/*line-height: 2.0rem;*/
 }
 .forminfo ol>li .gap{
-	margin: 0 0.8rem ;
+	margin-right: 0.28rem;
+	color: #ccc;
 }
 .forminfo ol>li .icon{
-	width: 2.4rem;
-	height: 2.0rem;
-	background-image: url('../images/sprite-icon@2x.png');
-	background-repeat: no-repeat;
-	background-size: 800% 400%;
+	height: 0.4rem;
+	width: 0.4rem;
+	margin-right: 0.28rem;
+	margin-left: 0.28rem;
+	margin-top: 0.19rem;
 }
 .forminfo ol>li:nth-of-type(6n-5) .icon {
-	background-position: -10.8rem -5.7rem;
+	background-position: -2.96rem -1.56rem;
 }
 .forminfo ol>li:nth-of-type(6n-4) .icon {
-	background-position:-13.6rem -3rem;
+	background-position: -3.66rem -0.87rem;
 }
 .forminfo ol>li:nth-of-type(6n-3) .icon {
-	background-position:-10.9rem -3rem;
+	background-position: -2.94rem -0.87rem;
 }
 .forminfo ol>li:nth-of-type(6n-2) .icon {
-	background-position:-13.6rem -5.5rem;
+	background-position: -3.66rem -1.56rem;
 }
 .forminfo ol>li:nth-of-type(6n-1) .icon {
-	background-position:-16.3rem -5.6rem;
+	background-position:-4.37rem -1.56rem;
 }
 
 /* 个人信息填写部分 end*/
@@ -222,7 +227,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 
 .ques-anw{
 	background: url(../images/logo@2x.png) center 0.55rem no-repeat;
-	background-size: 25%;
+	background-size: 1.46rem 1.09rem;
 }
 .header-time {
 	background: rgba(255,255,255,0.1);
@@ -320,6 +325,10 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-color: rgb(12,171,245);
 	font-size: 110%;
 }
+.next-que .tran{
+    background-position: -4.1rem -0.87rem;
+	color: transparent;
+}
 .next-que .current{
 	color: #444;	
 }
@@ -366,6 +375,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	width: 6.90rem;
 	margin: auto;
 	border:4px solid rgba(255,255,255,0.1);
+	margin-bottom: 0.8rem;
 }
 
 .grade .header{
@@ -470,7 +480,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 
 /*排名*/
 
-#sec5{
+#sec5,.allbg{
 	background-image: url(../images/page-title@2x.png);
 	background-repeat: no-repeat;	
 	background-position: 0rem 0rem;
@@ -485,11 +495,12 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	width: 6.9rem;
 	margin: auto;
 	color: #444;
-	margin-bottom: 1rem;
+	margin-bottom: 0.8rem;
 }
 .ranklist ul{
 	width: 6rem;
 	margin:auto;
+	padding-bottom: 0.8rem;
 /*	padding-left: 1rem;
 	padding-right: 1rem;*/
 }
