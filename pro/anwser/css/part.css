@@ -191,7 +191,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	flex: 1;
 }
 .forminfo .ipt input, .forminfo .ipt select{
-	color: #ccc;
+	color: #444;
 	border-color: transparent;
 	background: transparent;
 	width: 100%;
@@ -199,7 +199,9 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	outline: none;
 	font-size: 0.3rem;
 }
-
+.forminfo .ipt select{
+	color: #ccc;
+}
 .forminfo ol>li>div{
 	align-items: center;
 	justify-content: center;
@@ -517,6 +519,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	/*margin-bottom: 0.8rem;*/
 }
 .ranklist ul{
+	padding-top: 0.54rem;
 	width: 6rem;
 	margin:auto;
 	padding-bottom: 0.8rem;

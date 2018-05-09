@@ -113,6 +113,13 @@ function strTojson(str) {
     var optCache = ['<option value="0">请选择您所在的区县</option>'];
     $("#royal").on("change",function(v,n){
         var ind = $(this).val();
+        if(ind != '0') {
+            $('#royal').css({"color":"#444"})
+            $('#zone').css({"color":"#444"})
+        } else {
+            $('#royal').css({"color":"#ccc"})
+            $('#zone').css({"color":"#ccc"})
+        }
         var str = ''
         if(optCache[ind]) {
             str = optCache[ind]
@@ -327,6 +334,15 @@ function examAnwser() {
 }
 
 /* 答题部分 */
+
+(function(){
+    // 个人成绩
+    var name = '';
+    var count = '';
+    var rank = '';
+    var rate = '';
+
+}())
 
 
 /*
