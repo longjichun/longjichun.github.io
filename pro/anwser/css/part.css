@@ -133,20 +133,25 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	width: 5rem;
 	margin: auto;
 	margin-top: -0.4rem;	
-	height: 0.9rem;
-	line-height: 0.9rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
 }
 
 #sec2 {
 	background-color: rgba(0,0,0,0.5);
 	padding-top: 0.8rem;
 }
+.closeInfo{
+	float: right;
+	width: 0.6rem;
+	height: 0.6rem;
+	background-position: -1.45rem -0.7rem;;
+}
 .content{
-	background-color: #fff;
+	background-color: #b41a24;
     width: 6.9rem;
     border-radius: 0.2rem;
     margin: auto;
-    background-color: #fff;
     border: 4px solid #b41a24;
     margin: auto;
     color: #444;
@@ -156,9 +161,12 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-image: url('../images/banner-message.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
+	border-radius: 0.1rem 0.1rem 0 0;
 	height: 2rem;
+
 }
 .content .forminfo{
+	border-radius: 0 0 0.1rem 0.1rem;
 	padding-top: 0.2rem;
 	padding-bottom: 0.5rem;
 	background-color: #fff;
@@ -259,9 +267,11 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	margin: auto;
 }
 .choice li{
+	padding: 0.1rem 0;
+	align-items: center;
 	margin-bottom:0.5rem;
-	height: 0.8rem;
-	line-height: 0.8rem;
+	min-height: 0.8rem;
+	/*line-height: 0.8rem;*/
 	text-align: center;
 	color: #333;
 	background-color: #fff;
@@ -270,10 +280,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	display: -webkit-flex;	
 }
 
-.choice .cho-error {
-	background-color: #bbb;
-	color: #fff;
-}
+
 .choice .right-anwser {
 	color: #fff;
 	background-color: rgb(255,192,23);
@@ -281,21 +288,32 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .choice li>*{
 	align-items: center;
 	text-align: center;
+	display: flex;
 }
 .choice li span{
 	flex: 1;
+	justify-content: center;
 }
 .choice li b,.choice li i{
-	width: 0.75rem;
+	width: 0.6rem;
+	height: 0.6rem;
+}
+.choice .choosed {
+	background-color: rgb(255,192,23);
+	color: #fff;
 }
 .choice .choosed i{
-	background-position: 0.0rem -0.68rem;
+	background-position: 0.0rem -0.74rem;
 }
 .choice .cho-error b{
-	background-position: -1.5rem -0.68rem;	
+	background-position: -1.5rem -0.74rem;	
 }
 .choice .right-anwser b {
-	background-position: -0.8rem -0.68rem;		
+	background-position: -0.8rem -0.74rem;		
+}
+.choice .cho-error {
+	background-color: #bbb;
+	color: #fff;
 }
 
 .next-que{
@@ -315,13 +333,10 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .next-que .items{
 	flex: 1;
 	padding-left: 0.4rem;
-	background-image: url(../images/sprite-icon@2x.png);
-	background-repeat: no-repeat;
-	background-position: -21rem -3rem;
-	background-size: 140% 270%;
-	font-size: 110%;
+	font-size: 0.35rem;
 }
 .next-que .btn-next {
+	font-weight: bold;
 	width: 1.76rem;
 	text-align: center;
 	color: #fff;
@@ -329,7 +344,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	font-size: 110%;
 }
 .next-que .tran{
-    background-position: -4.1rem -0.87rem;
+    background-position: -4.43rem -0.87rem;
 	color: transparent;
 }
 .next-que .current{
@@ -456,7 +471,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	font-size: 0.5rem;
 	background-image: url(../images/result-background-l@2x.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center 0rem;
 	background-size: 1.5rem 1.2rem;
 	width: 1.58rem;
 
