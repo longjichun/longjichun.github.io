@@ -369,6 +369,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	background-color: #fff;
 	padding: 0.84rem;
 	border-radius: 12px;
+	padding-top: 0.5rem;
 }
 .content-wrap{
 	border-radius: 12px;
