@@ -68,6 +68,9 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	border-top-color: #bfbfbf;
 	border-top-width: 8px;	
 }
+.gap80{
+	height: 0.8rem;
+}
 .hide{
 	display: none;
 }
@@ -496,7 +499,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	width: 6.9rem;
 	margin: auto;
 	color: #444;
-	margin-bottom: 0.8rem;
+	/*margin-bottom: 0.8rem;*/
 }
 .ranklist ul{
 	width: 6rem;
