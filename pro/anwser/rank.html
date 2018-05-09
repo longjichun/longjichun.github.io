@@ -115,6 +115,34 @@
     <div class="gap80"></div>
 </section>
 <script>
+    var url='http://test.app.onlyred.net'+ '/rednetMoment-http/rednetApi.opx?param=';
+
+    var UUID = uuid;
+    var USERID = userid;
+    var param={
+        "header":{
+            "userId":userId,
+            "version":"4.0"
+        },
+        "method":"rankList",
+        "myParams":[19],
+        "service":"cn.rednet.moment.services.AnswerApi",
+        "uuid":UUID
+    }
+     $.ajax({
+        url: urls+JSON.stringify(param),
+        type: "get",
+        dataType:"jsonp",
+        jsonp: 'jsoncallback',
+        jsonpCallback:"success_jsonpCallback",
+        success: function(res){
+           var body = strTojson(res.body);
+           fillList( res.rankList )
+        },
+        error: function(){
+            
+        }
+    })  
     function fillList(arr) {
             var temp = ['<li class="','','">','<i>','','</i>','<span>',  ''  ,'</span><span>','','</span><span class="per-time">','','</span></li>']
             var str = ''

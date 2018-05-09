@@ -8,9 +8,9 @@ var UUID = uuid;
 var USERID = userid;
 
 var baseParam = {
-    "header": {"userId":UUID,"version":"6.0"},
+    "header": {"userId":USERID,"version":"6.0"},
     "service": "cn.rednet.moment.services.AnswerApi",
-    "uuid": USERID
+    "uuid": UUID
 }
 baseParam.myParams = [activId]
 
@@ -376,9 +376,9 @@ function personOut(){
         used = formatTime(+res.utilityTime);
         count = res.scoreCount;
         rate = res.winRate || ( (+res.correctCount) / (+res.questionCount) ).toFiexd(2);
-
+        localStorage.setItem("resultId",res.id)
         $(".used-time span").html(used)
-        $(".result .count .num")html(count)
+        $(".result .count .num").html(count)
         $(".rank .num").html(rank)
         $(".corret .num").html(rate)
     });

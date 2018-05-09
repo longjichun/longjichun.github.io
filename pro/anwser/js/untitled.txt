@@ -1,6 +1,6 @@
 
 //. 正确答案分割。 传递的时间戳 单位格式.  name从哪里来?
-
+// 冠军列表？
 
 
 
@@ -164,7 +164,7 @@ json说明:
 
 6. 分享详情
 
-http://localhost:8080/rednetMoment-http/rednetApi.opx?param={%22header%22:{%22userId%22:%22123%22,%22version%22:%224.0%22},%22method%22:%22selectAnswerAchvInfo%22,%22myParams%22:[1],%22service%22:%22cn.rednet.moment.services.AnswerApi%22,%22uuid%22:%22EED193780B6347D79CDE7103842A418D%22}
+http://localhost:8080/rednetMoment-http/rednetApi.opx?param={"header":{"userId":"123","version":"4.0"},"method":"selectAnswerAchvInfo","myParams":[1],"service":"cn.rednet.moment.services.AnswerApi","uuid":"EED193780B6347D79CDE7103842A418D"}
 
 参数说明
 1:结果ID

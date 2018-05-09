@@ -51,7 +51,7 @@
                     <div class="count">
                         <div class="w">
                             <div class="inner">
-                                <div class="num" >50</div>
+                                <div class="num" >00</div>
                                 <div class="n">分数</div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                     <div class="rank">
                         <div class="w">
                             <div class="inner">
-                                <div class="num" style="font-size: 0.5rem;">50</div>
+                                <div class="num" style="font-size: 0.5rem;">00</div>
                                 <div class="n" style="padding-bottom: 0rem;">排名</div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                     <div class="corret">
                         <div class="w">
                             <div class="inner">
-                                <div class="num">50</div>
+                                <div class="num">00</div>
                                 <div class="n">正确率</div>
                             </div>
                         </div>
@@ -82,7 +82,43 @@
     <div class="gap80"></div>
 </section>
 <script>
+    var resultId = localStorage.getItem("resultId");
+    var url='http://test.app.onlyred.net'+ '/rednetMoment-http/rednetApi.opx?param=';
 
+    var UUID = uuid;
+    var USERID = userid;
+    var param={
+        "header":{
+            "userId":userId,
+            "version":"4.0"
+        },
+        "method":"rankList",
+        "myParams":[resultId],
+        "service":"cn.rednet.moment.services.AnswerApi",
+        "uuid":UUID
+    }
+     $.ajax({
+        url: urls+JSON.stringify(param),
+        type: "get",
+        dataType:"jsonp",
+        jsonp: 'jsoncallback',
+        jsonpCallback:"success_jsonpCallback",
+        success: function(res){
+            var body = strTojson(res.body);
+            var rank = res.achvRank;
+            var used = formatTime(+res.utilityTime);
+            var count = res.scoreCount;
+            var rate = res.winRate || ( (+res.correctCount) / (+res.questionCount) ).toFiexd(2);
+            localStorage.setItem("resultId",res.id)
+            $(".used-time span").html(used)
+            $(".result .count .num").html(count)
+            $(".rank .num").html(rank)
+            $(".corret .num").html(rate)
+        },
+        error: function(){
+            
+        }
+    }) 
 </script>
 </body>
 </html>
