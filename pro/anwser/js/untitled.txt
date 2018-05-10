@@ -1,8 +1,8 @@
 
-//. 正确答案分割。 传递的时间戳 单位格式.  name从哪里来?
+//. 正确答案分割。 传递的时间戳 单位格式. 毫秒 name从哪里来?
 // 冠军列表？
 
-
+// 单位名称。 验证码。 结果页姓名获取
 
 you1. 答题活动相关信息接口
 
@@ -118,7 +118,8 @@ json说明
         "scoreCount":5, //得分
         "status":"1",// 0:答题数不够 1:提交成功 2: 当天已提交过一次
         "utilityTime":123, //所用时间(毫秒)
-        "winrate":100 //胜率
+        "winrate":100 //胜率,
+        "userName":'姓名'
     },
     "code":"0000",
     "isEncrypt":"0",
@@ -163,8 +164,7 @@ json说明:
 
 
 6. 分享详情
-
-http://localhost:8080/rednetMoment-http/rednetApi.opx?param={"header":{"userId":"123","version":"4.0"},"method":"selectAnswerAchvInfo","myParams":[1],"service":"cn.rednet.moment.services.AnswerApi","uuid":"EED193780B6347D79CDE7103842A418D"}
+http://test.app.onlyred.net/rednetMoment-http/rednetApi.opx?param={"header":{"userId":"123","version":"4.0"},"method":"selectAnswerAchvInfo","myParams":[1],"service":"cn.rednet.moment.services.AnswerApi","uuid":"EED193780B6347D79CDE7103842A418D"}
 
 参数说明
 1:结果ID
@@ -192,7 +192,7 @@ json说明:
 
 
 2 新增报名信息接口
-http://test.app.onlyred.net/rednetMoment-http/rednetApi.opx?param={"header":{"userId":"313272","version":"4.3"},"method":"addActivityEnroll","myParams":[12,1,"blue","13469072803","3016","芙蓉区",],"service":"cn.rednet.moment.services.AnswerApi","uuid":"F0A221F0E5DD49029F7C12ACAC288DEB"}
+http://test.app.onlyred.net/rednetMoment-http/rednetApi.opx?param={"header":{"userId":"313272","version":"4.3"},"method":"addActivityEnroll","myParams":[12,1,"blue","13469072803","","芙蓉区",],"service":"cn.rednet.moment.services.AnswerApi","uuid":"F0A221F0E5DD49029F7C12ACAC288DEB"}
 
 
 

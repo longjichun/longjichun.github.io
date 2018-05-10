@@ -14,154 +14,83 @@
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
+    <style>
+        p{
+            text-align: center;
+            font-size: 0.3rem;
+            padding-top: 0.8rem;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <section id="sec5">
     <div class="ranklist">
+        <p>暂未有排名, 敬请期待。</p>
         <ul>
-            <li class="forward">
-                <i class="spritIcon"></i>
-                <span>卷卷心</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="forward">
-                <i class="spritIcon"></i>
-                <span>卷卷心</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="forward">
-                <i class="spritIcon"></i>
-                <span>卷卷心</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-            <li class="">
-                <i>1</i>
-                <span>卷卷心啊</span>
-                <span>100分</span>
-                <span class="per-time">00:00:00</span>
-            </li>
-
         </ul>
     </div>
     <div class="gap80"></div>
 </section>
 <script>
     var url='http://test.app.onlyred.net'+ '/rednetMoment-http/rednetApi.opx?param=';
-
+    var showListNum = 10;
     var UUID = uuid;
     var USERID = userid;
     var param={
         "header":{
-            "userId":userId,
+            "userId":USERID,
             "version":"4.0"
         },
         "method":"rankList",
-        "myParams":[19],
+        "myParams":[19, showListNum],
         "service":"cn.rednet.moment.services.AnswerApi",
         "uuid":UUID
     }
      $.ajax({
-        url: urls+JSON.stringify(param),
+        url: url+JSON.stringify(param),
         type: "get",
         dataType:"jsonp",
         jsonp: 'jsoncallback',
         jsonpCallback:"success_jsonpCallback",
         success: function(res){
-           var body = strTojson(res.body);
-           fillList( res.rankList )
+           var body = res.body;
+           fillList( body.rankList )
         },
         error: function(){
             
         }
     })  
     function fillList(arr) {
-            var temp = ['<li class="','','">','<i>','','</i>','<span>',  ''  ,'</span><span>','','</span><span class="per-time">','','</span></li>']
-            var str = ''
-            for(var i = 0,len = arr.length;i<len;i++ ) {
-                var val = arr[i]
-                if(i<3) {
-                    temp[1] = 'forward'
-                    temp[4] = ''
-                } else {
-                    temp[4] = i+1;
-                }
-                temp[7] = val.userName
-                temp[9] = val.scoreCount
-                temp[11] = formatDuring(val.utilityTime)
-                str = str + temp.join("")
-            }
-            str = str.replace(/<i><\/i>/g,'<i class="spritIcon"></i>')
-            $(".ranklist ul").html(str)
+        // arr = [            {
+        //     "@type":"cn.rednet.moment.vo.AnswerRankVo",
+        //     "mobile":"15802636297", //手机号码
+        //     "scoreCount":9, //分数
+        //     "userName":"木木哈",//昵称
+        //     "utilityTime":240 //所用时间
+        // }]
+        if(!arr.length) {
+            $(".ranklist p").show()
         }
+        var temp = ['<li class="','','">','<i>','','</i>','<span>',  ''  ,'</span><span>','','分</span><span class="per-time">','','</span></li>']
+        var str = ''
+        for(var i = 0,len = arr.length;i<len;i++ ) {
+            var val = arr[i]
+            if(i<3) {
+                temp[1] = 'forward'
+                temp[4] = ''
+            } else {
+                temp[4] = i+1;
+            }
+            temp[7] = val.userName
+            temp[9] = val.scoreCount
+            temp[11] = formatDuring(val.utilityTime*1000)
+            str = str + temp.join("")
+        }
+        str = str.replace(/<i><\/i>/g,'<i class="spritIcon"></i>')
+        $(".ranklist ul").html(str)
+    }
+
 </script>
 </body>
 </html>

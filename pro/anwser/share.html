@@ -40,7 +40,7 @@
                 <div class="header ov">
                     <div class="fl name">
                         <span>姓名:</span>
-                        <i>王二</i>
+                        <i></i>
                     </div>
                     <div class="fr used-time">
                         <i></i>
@@ -89,27 +89,32 @@
     var USERID = userid;
     var param={
         "header":{
-            "userId":userId,
+            "userId":USERID,
             "version":"4.0"
         },
-        "method":"rankList",
+        "method":"selectAnswerAchvInfo",
         "myParams":[resultId],
         "service":"cn.rednet.moment.services.AnswerApi",
         "uuid":UUID
     }
      $.ajax({
-        url: urls+JSON.stringify(param),
+        url: url+JSON.stringify(param),
         type: "get",
         dataType:"jsonp",
         jsonp: 'jsoncallback',
         jsonpCallback:"success_jsonpCallback",
         success: function(res){
-            var body = strTojson(res.body);
-            var rank = res.achvRank;
-            var used = formatTime(+res.utilityTime);
-            var count = res.scoreCount;
-            var rate = res.winRate || ( (+res.correctCount) / (+res.questionCount) ).toFiexd(2);
-            localStorage.setItem("resultId",res.id)
+            var body = res.body;
+            if(body == '') {
+                alert("获取个人成绩失败");
+                return;
+            }
+            var rank = body.achvRank;
+            var used = formatDuring(+body.utilityTime*1000);
+            var count = body.scoreCount;
+            var rate = body.correctCount / body.questionCount ;
+            rate.toFixed(2)
+            localStorage.setItem("resultId",body.id)
             $(".used-time span").html(used)
             $(".result .count .num").html(count)
             $(".rank .num").html(rank)
