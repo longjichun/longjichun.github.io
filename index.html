@@ -1,344 +1,221 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>龙及纯-前端攻城狮-个人简历</title>
-	<meta name='TTUNION_verify' content='605c8efeafb9a1ec2ab0470afab31c43'>
-	<style>
-		*{margin: 0;padding: 0;}
-		ul,li{list-style: none;}
-		i{font-style: normal;}
-		.content-wrap{width: 800px;margin: auto;padding: 20px}
-		h1,h3{font-weight: normal;}
-		h1{padding: 30px 0 40px 0;}
+    <title>党内法规答题活动</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" name="viewport" id="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="icon" href="" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/part.css?time=20180401" />
+    <link rel="stylesheet" type="text/css" href="css/newly.css?time=20180401" />
+    <!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!--<script type="text/javascript" src="js/js.cookie-2.2.0.min.js"></script>-->
+    <script type="text/javascript" src="js/common.js"></script>
 
-		h3{padding: 10px 20px;border-bottom: 1px solid rgba(77, 107, 210, 0.72);margin-bottom: 15px;font-weight: bold;}
-		.company{font-size: 16px;font-weight: bold;}
-		section{margin-bottom: 40px;overflow: hidden;}
-		.gap{display: inline-block;width: 5px;background: rgba(77, 107, 210, 0);height: 16px;border-radius: 3px;margin:0 60px;}
-		.fl{float: left;}
-		.person-info li{overflow: hidden;height: 26px;}
-		.person-info li div{width: 50%}
-		.rect{position: relative;width: 100px;height: 100px ;border:1px solid #ccc;}
-		.out{width: 90px;height: 90px;margin: 5px auto;border-radius: 45px;background: #f90;padding: 15px;box-sizing: border-box;}
-		.inner{width: 60px;height: 60px;background: #fff;border-radius: 30px;position: absolute;top:20px;left: 20px;z-index: 3;}
-		.mask{position: absolute;top:0;left: 0;width: 100%;height: 30px;background: #fff;z-index: 2;}
-		
-		.skill li{
-			overflow: hidden;
-			line-height: 24px;
-			font-size: 14px;
-		}
-		.skill i{
-			padding: 3px 6px;
-			width: 80px;
-			text-align: right;
-			float: left;
-		}
-		
-		.intention .circle-wrap{
-			width: 100%;
-			height: 300px;
-			position: relative;
-		}
-		.intention .circle-wrap div{
-			display: table;
-			border-radius: 100%;
-			position: absolute; 
-			width: 110px;
-			height: 110px;
-			text-align: center;
-		}
-
-		.intention .circle-wrap span{
-			color:#f1f1f1;
-			display: table-cell;
-			vertical-align: middle;
-		}
-		.intention .circle-wrap div:nth-of-type(1){background-color: #99c4e2;width: 130px;height: 130px;top:120px;left: 420px;}
-		.intention .circle-wrap div:nth-of-type(2){background-color: #8f8fe0;width: 50px;height: 50px;top:20px;left: 520px;}
-		.intention .circle-wrap div:nth-of-type(3){background-color: #82aecc;width: 60px;height: 60px;top:220px;left: 900px;}
-		.intention .circle-wrap div:nth-of-type(4){background-color: #3d7dd4;width: 70px;height: 70px;top:20px;left: 690px;}
-		.intention .circle-wrap div:nth-of-type(5){background-color: #4582d5;width: 100px;height: 100px;top:20px;left: 850px;}
-		.intention .circle-wrap div:nth-of-type(6){background-color: #7193da;width: 100px;height: 100px;top:80px;left: 600px;}
-		.intention .circle-wrap div:nth-of-type(7){background-color: #7193da;width: 100px;height: 100px;top:183px;left: 315px;}
-		.intention .circle-wrap div:nth-of-type(8){background-color: #4582d5;width: 100px;height: 100px;top:40px;left: 20px;}
-		.intention .circle-wrap div:nth-of-type(9){background-color: #82aecc;width: 80px;height: 80px;top:80px;left: 310px;}
-		.intention .circle-wrap div:nth-of-type(10){background-color: #4582d5;width: 70px;height: 70px;top:220px;left: 630px;}
-		.intention .circle-wrap div:nth-of-type(11){background-color: #99c4e2;width: 80px;height: 80px;top:215px;left: 45px;}
-		.intention .circle-wrap div:nth-of-type(12){background-color: #82aecc;width: 90px;height: 90px;top:25px;left: 195px;}
-		.intention .circle-wrap div:nth-of-type(13){background-color: #7193da;width: 90px;height: 90px;top:180px;left: 170px;}
-		.exp ul{border-bottom: 1px dotted blue;padding-bottom: 10px;}
-		.exp li p{font-size: 14px;text-indent: 40px;line-height: 24px;}
-		section b{color: rgba(77, 107, 210, 0.72)}
-		article li{font-size:14px;text-indent: 40px;line-height: 24px;}
-		.padl-30{padding-left: 30px;}
-		.hei{height: 15px;}
-		.righ200{display: inline-block;width: 200px;}
-	</style>
 </head>
 <body>
+<!-- 强制关注公众号 -->
+<!-- Skin hook模块 -->
+<link rel="stylesheet" type="text/css" href="css/hook.css" />
+<section id="sec1" class="">
+    <div class="operation">
+        <a id="startAnser" class="sure" href="javascript:void(0)">开始答题</a>
+        <div class="links">
+            <a href="./rank.html" class="viewRankList link">查看排行</a>
+            <span>|</span>
+            <a href="./learling.html" class="link">我要学习</a>
+            <span>|</span>
+            <a href="./rule.html" class="link">活动规则</a>
+        </div>
+    </div>
+</section>
+<section id="sec2" class="hide">
+    <div class="content">
+        <div class="header"><i class="closeInfo spritIcon"></i></div>
+        <div class="forminfo">
+            <ol>
+                <li>
+                    <div class="icon spritIcon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="text" placeholder="请输入您的真实姓名">
+                    </div>
+                </li>
+                <li>
+                    <div class="icon spritIcon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt sel">
+                        <select id="royal">
+                            <option value="0">请选择您所在的市州</option>
+                            <option value="1">长沙</option>
+                            <option value="2">株洲</option>
+                            <option value="3">湘潭</option>
+                            <option value="4">衡阳</option>
+                            <option value="5">邵阳</option>
+                            <option value="6">岳阳</option>
+                            <option value="7">益阳</option>
+                            <option value="8">娄底</option>
+                            <option value="9">常德</option>
+                            <option value="10">郴州</option>
+                            <option value="11">永州</option>
+                            <option value="12">怀化</option>
+                            <option value="13">湘西</option>
+                            <option value="14">张家界</option>
+                        </select>
+                        <div class="sanjiao-p">
+                            <div class="sanjiao-c"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon spritIcon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt sel">
+                        <select id="zone">
+                            <option value="0">请选择您所在的区县</option>
+                        </select>
+                        <div class="sanjiao-p">
+                            <div class="sanjiao-c"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon spritIcon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="text" placeholder="请输入您的单位全称">
+                    </div>
+                </li>
+                <li>
+                    <div class="icon spritIcon"></div>
+                    <div class="gap">|</div>
+                    <div class="ipt">
+                        <input type="Number" placeholder="请输入您的手机号码">
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <a href="javascript:void(0);" id="fillMyInfo" class="sure">确认</a>
 
-	<div class="content-wrap">
-		<h1><center>web前端工程师-个人简历</center></h1>
-		<section class="person-info">
-			<h3>个人信息</h3>
-			<ul>
-				<li>
-					<div class="fl">
-						<span>姓　　名：</span><i>龙及纯</i>
-					</div>
-					<div class="fl">
-						<span>姓　　别：</span><i>男</i>
-					</div>
-				</li>
-				<li>
-					<div class="fl">
-						<span>出生年月：</span><i>1990.11</i>
-					</div>
-					<div class="fl">
-						<span>毕业院校：</span><i>湖北经济学院</i>
-					</div>
-				</li>
-				<li>
-					<div class="fl">
-						<span>学　　历：</span><i>本科</i>
-					</div>
-					<div class="fl">
-						<span>专　　业：</span><i>信息管理与信息系统</i>
-					</div>
-				</li>
-				<li>
-					<div class="fl">
-						<span>毕业年份：</span><i>2014.06</i>
-					</div>
-					<div class="fl">
-						<span>籍　　贯：</span><i>湖南-湘潭</i>
-					</div>
-				</li>
-				<li>
-					<div class="fl">
-						<span>手　　机：</span><i>132 8868 5647</i>
-					</div>
-					<div class="fl">
-						<span>邮　　箱：</span><i>longhtml5@163.com</i>
-					</div>
-				</li>
+</section>
+<section id="sec3" class="ques-anw ov hide">
+    <div class="header-time ov">
+        <span>00:00:00</span>
+    </div>
+    <div class="question">
+        <p class="mult"><i></i><span></span></p>
+    </div>
+    <div class="choice">
+        <ul>
+            <!-- choosed 已选择     right-anwser 正确答案       选择正确 -->
+<!--             <li class="choosed right-anwser"><i class="spritIcon"></i><span>选择了一个正确的</span><b class="spritIcon"></b></li>
+            <li class="choosed cho-error"><i  class="spritIcon"></i><span>选择了一个错误的</span><b class="spritIcon"></b></li>
+            <li class="right-anwser"><i class="spritIcon"></i><span></span><b class="spritIcon"></b></li>
+            <li><i class="spritIcon"></i><span>没有选择错误的</span><b class="spritIcon"></b></li> -->
+        </ul>
+    </div>
+    <div class="next-que">
+        <div class="items">
+            <i class="spritIcon tran">trl</i>
+            <i class="current">00</i>
+            <i>/</i>
+            <i class="total">00</i>
+        </div>
+        <div class="btn-next hide">下一题</div>
+    </div>
+</section>
+<section id="sec4" class="hide">
+    <div class="grade content-wrap" style="margin-bottom: 0rem;">
+        <div class="bg"> 
+            <div class="header ov">
+                <div class="fl name">
+                    <span>姓名:</span>
+                    <i></i>
+                </div>
+                <div class="fr used-time">
+                    <i></i>
+                    <span>00:00:00</span>
+                </div>
+            </div>
+            <div class="result">
+                <div class="count">
+                    <div class="w">
+                        <div class="inner">
+                            <div class="num" >0</div>
+                            <div class="n">分数</div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="rank">
+                    <div class="w">
+                        <div class="inner">
+                            <div class="num" style="font-size: 0.5rem;">0</div>
+                            <div class="n" style="padding-bottom: 0rem;">排名</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="corret">
+                    <div class="w">
+                        <div class="inner">
+                            <div class="num">0</div>
+                            <div class="n">正确率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-reanwser">
+        再答一次
+    </div>
+    <div class="links">
+        <a href="./rank.html" class="viewRankList link">查看排行</a>
+        <span>|</span>
+        <a href="./learling.html" class="link">我要学习</a>
+        <span>|</span>
+        <a href="./rule.html" class="link">活动规则</a>
+    </div>
+</section>
 
-			</ul>
-		</section>
-		<section class="skill">
-			<h3>技能</h3>
-			<ul>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;熟悉HTML、CSS等网页技术，掌握DIV+CSS页面架构和布局方式,能够将由设计师给出来的，做成网页应用。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;熟悉原生JavaScript语言，包括es6、7，了解javascript面向对象编程、设计模式,有一定的组件设计能力。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;熟悉jquery框架、angularjs框架，能将其快速应用于项目中。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;熟悉 vue 框架以及vuex，能够在项目中熟练使用</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解d3、underscore/lodash、rxjs等前端库。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解bootstrap框架，了解less，sass预处理语言。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解git、gulp、requirejs等应用工具。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解部分测试工具，如mocha、karma、webdriverIO，保证代码质量。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解nodejs,能够使用express框架搭建后台，进行网站建设，并有实际项目经验。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解http网络协议、熟悉ajax、fetch、websocket等前后端数据交互技术。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;了解mysql、redis数据存储工具。</li>
-				<li><b>●</b>&nbsp;&nbsp;&nbsp;能够使用chrome、fiddler等工具对web系统进行代码调试，bug检测，性能调优，以及代码优化等。</li>
-			</ul>
 
-		</section>
-		<section class="exp">
-			<h3>工作经历</h3>
-			<ul>
-				<li>
-					<span class="company">深圳市迅雷网络科技有限公司　　　　　　  　</span>
-					<span class="gap"></span>
-					<span>2017.07--至　今</span>
-					<span class="gap"></span>
-					<span>web前端</span>
-				</li>
-				<li class="hei"></li>
-				<li class="padl-30">
-					<span>工作职责：</span>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;负责公司产品业务审核系统研发</p>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;运维监控系统维护与新需求研发</p>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;公司钉钉接口开发</p>
-				</li>
-
-			</ul>
-			<br/>
-			<ul>
-				<li>
-					<span class="company">深圳博彦科技有限公司（外驻深交所监察部）</span>
-					<span class="gap"></span>
-					<span>2015.06--2017.06</span>
-					<span class="gap"></span>
-					<span>web前端</span>
-				</li>
-				<li class="hei"></li>
-				<li class="padl-30">
-					<span>工作职责：</span>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;负责期权风控系统前端部分</p>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;前端开发组件选型</p>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;部分表格组件开发</p>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;部门门户网站整站开发</p>
-					<p><b>●</b>&nbsp;&nbsp;&nbsp;其它项目(深港通大屏)</p>
-				</li>
-				<br>
-				<li class="padl-30" style="font-weight: bold;">获得交易所监察部门优秀程序员奖</li>
-			</ul>
-		</section>
-		<section>
-			<h3>项目经验</h3>
-			<article>
-				<div>
-					<span>迅雷产品业务审核系统　　　　　</span>
-					<span class="gap"></span>
-					<span>2017.10 – 2018.02</span>
-				</div>
-				<div class="hei"></div>
-				<div class="padl-30">
-					<span>系统主要功能</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;接收各个业务平台推到系统的文字、图片、网址，并对其进行 AI 审核</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;提供前端界面，供信息审核人员，进行人工审核</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;统计审核结果；提供黑白名单功能。</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>在项目中的职责</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;个人独立负责前后端代码实现，以及数据库设计</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;独立完成前端界面、数据交互</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;独立完成node后台的AI审核方法与查询、人工审核等接口</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;测试代码编写</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;项目部署、监控日常告警</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>项目技术</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;node + nginx 实现后台web服务</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;node + express 完成后端系统搭建</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;sequelize + mysql 实现数据的增删改查</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;利用 redis 实现消息队列，以及两个应用之间的事件通知机制</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;vue + webpack 实现前端功能</li>
-					</ul>
-				</div>	
-			</article>
-			<div class="hei"></div>
-			<div class="hei"></div>
-			<article>
-				<div>
-					<span>新版期权风控系统</span>
-					<span class="gap"></span>
-					<span>2017.01--2017.06</span>
-					<span class="gap"></span>
-				</div>
-				<div class="hei"></div>
-				<div class="padl-30">
-					<span>系统主要功能</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;实时查询、历史查询有关期权的各类信息，如做市商、保证金、投资者等.</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;期权交易情况实时监控</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;结算价模块设置</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>在项目中的职责</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;需求分析、前端规格说明书编写</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;前端架构搭建</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;测试工具搭建及测试代码编写</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;核心业务模块代码实现</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;node开发，模拟数据</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;gulp项目构建</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;绘制项目架构及核心代码逻辑的流程图</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>项目技术</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;karma+jsmine进行单元测试、webdriverio+mocha进行端到端测试</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;gulp进行代码构建</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;angularjs实现前端基础架构，以及业务功能</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;ext6.0构建系统所有的表格查询</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;d3+svg实现数据可视化</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;websocket实现数据推送</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;离线存储、web本地存储</li>
-					</ul>
-				</div>	
-			</article>	
-			<div class="hei"></div>
-			<div class="hei"></div>
-			<article>
-				<div>
-					<span>树形表格组件开发</span>
-					<span class="gap"></span>
-					<span>2016.06--2016.07</span>
-					<span class="gap"></span>
-				</div>
-				<div class="hei"></div>
-				<div class="padl-30">
-					<span>组件主要功能</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;实现dataSet，提供展开、收缩、全部展开、全部收缩、过滤、排序、分页等接口。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;结合ext，实现树形表格demo。</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>在项目中的职责</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;个人负责TreeDataSet的实现。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;利用ext以及项目组表格组件，对树形表格组件进行封装。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;编写单元测试代码</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>项目技术</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;原生js</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;少量ext的api接口</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;mocha测试工具</li>
-					</ul>
-				</div>	
-			</article>		
-			<div class="hei"></div>
-			<div class="hei"></div>
-			<article>
-				<div>
-					<span>债券监察系统　　</span>
-					<span class="gap"></span>
-					<span>2015.10  - 2016.01</span>
-					<span class="gap"></span>
-				</div>
-				<div class="hei"></div>
-				<div class="padl-30">
-					<span>项目主要功能</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;提供交易所各只债券以及相关数据的查询。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;债券信息的可视化，以及异常数据的警示。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;查看每只债券的详情。</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>在项目中的职责</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;采取angular实现前端项目架构，编写业务逻辑代码。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;使用d3+svg实现数据可视化,如泡泡图。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;web性能调优。</li>
-					</ul>
-				</div>
-				<div class="padl-30">
-					<span>项目心得</span>
-					<ul>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;能够熟练使用angularjs框架，对于双向数据绑定等有了更深的认识，对于mvc模式有了一定的体会。</li>
-						<li><b>●</b>&nbsp;&nbsp;&nbsp;通过使用d3与svg，能够快速将数据转为合适的可视化图表，对d3+svg也有了更进一步的了解。</li>
-					</ul>
-				</div>	
-			</article>		
-			<div class="hei"></div>
-			<div class="hei"></div>
-		</section>
-
-	</div>
+<div class="share">
+    <div>
+        <ul>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/weibo.png" />
+                <span>新浪微博</span>
+            </li>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/wechat.png" />
+                <span>微信好友</span>
+            </li>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/pyq.png" />
+                <span>微信朋友圈</span>
+            </li>
+            <li>
+                <img src="http://moment.rednet.cn/common/img/qq.png" />
+                <span>QQ好友</span>
+            </li>
+        </ul>
+        <div>取消</div>
+    </div>
+</div>
+<script>
+    (function(){
+        $.each($(".link"),function(item){
+            var old = $(this).attr("href")
+            $(this).attr("href",old+location.search);
+        })
+    }());
+</script>
+<script src="js/part.js" type="text/javascript"></script>
 </body>
 </html>
