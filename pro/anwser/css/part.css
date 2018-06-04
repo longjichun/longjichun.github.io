@@ -197,6 +197,8 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	height: 100%;
 	outline: none;
 	font-size: 0.3rem;
+	appearance:none;
+	-webkit-appearance:none;
 }
 .forminfo .ipt select{
 	color: #ccc;
@@ -540,7 +542,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 	text-align: center;
 }
 .ranklist li i{
-	width: 0.5rem;
+	width: 0.8rem;
 }
 .ranklist li span:nth-of-type(1) {
 	width: 1.7rem;
@@ -607,8 +609,28 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
     border-top: #CCCCCC 1px solid;
 }
 
-
-
+.sharelink, .back{
+	position: fixed;
+	right: 0.5rem;
+	top:0.5rem;
+	width: 0.7rem;
+	height: 0.7rem;
+	padding: 0.1rem;
+	border-radius: 0.1rem;
+	background-color: rgba(255,255,255,0.2);
+}
+.sharebg{
+	height: 0.5rem;
+	background-position: -2.2rem -0.1rem;
+}
+.back{
+	left: 0.5rem;
+	right: auto;
+}
+.back .sharebg{
+	height: 0.5rem;
+	background-position: -0.1rem -0.1rem;
+}
 
 
 

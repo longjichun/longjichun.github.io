@@ -1,19 +1,49 @@
-var BASEURL = 'http://test.app.onlyred.net/'
+var BASEURL = 'http://test.app.onlyred.net/';
 var bathpath = 'rednetMoment-http/rednetApi.opx?param='
 
 var anwserGapTime = 500;
 
 var activId = 19
-var ifCanStart = false;
 
 var UUID = uuid;
-var USERID = userid;
+
+function needLogin() {
+    // 没有 userid. // 先处理在客户端的情况 
+    if( confirm("检测到您尚未登录时刻app，是否现在去登录？") ) {
+        if (ostype == "android") {
+            verifyJsBridge.postNotification('requireUserToLogin', '{}');
+        } else if (ostype == "ios") {
+            jsBridge.postNotification('requireUserToLogin', '{}');
+        }    
+    } else {
+
+    }
+}
+
+if(userid == '-1') {
+    needLogin()
+}
+
+function transferUserDataToWeb(uid,urid,token){
+    userid = urid;
+    // jsBridge  使用的 勿删
+    if(urid == "-1"){
+        return;
+    }else{
+        sessionStorage.setItem("loginId",userid);
+    }
+}
+
 
 var baseParam = {
-    "header": {"userId":USERID,"version":"6.0"},
+    "header": {"userId":userid,"version":"6.0"},
     "service": "cn.rednet.moment.services.AnswerApi",
     "uuid": UUID
 }
+
+
+
+
 
 var userStatus, questionStatus ;
 (function init() {
@@ -26,15 +56,24 @@ var userStatus, questionStatus ;
             userStatus = res.enrollStatus;
             ifInAnwserPeriod();
             router();
+        },function(err,url){
+            
         })    
     } catch(error){
         console.log(error)
         ifInAnwserPeriod()
     }
-}())
+}());
+
 function ifInAnwserPeriod() {
     if( questionStatus != 1) {
-        $("#startAnser").html("不在答题时段内");
+        if( questionStatus == 3) {
+            $("#startAnser").html("当天已经完成了答题");
+        } else {
+            $("#startAnser").html("不在答题时段内");               
+        }
+    } else {
+
     }
 }
 
@@ -56,7 +95,7 @@ function ifInAnwserPeriod() {
             $("#startAnser").removeClass("to-anwser").html("开始答题")
         }
     },1000)
-}());
+});
 
 
 /*路由*/
@@ -64,14 +103,20 @@ function router() {
 
 
     $("#startAnser").on("click",function(){
+        if(userid == '-1') {
+            needLogin();
+            return;
+        }
         if(questionStatus != 1) {
             return;
         } else {
+            // 在答题时段
             if( userStatus == 1 ) {             // ------------------ 绕过注册信息 直接答题
                 // 已报名
                 $("section").hide()
                 $("#sec3").show()
             } else {
+                // 填写报名信息
                 $("section").hide()
                 $("#sec2").show()
             }
@@ -81,6 +126,8 @@ function router() {
     })
 
     $(".btn-reanwser").click(function(){
+        anwsered = false;
+        runAnwser()
         $("section").hide()
         $("#sec3").show()
         totalTime()
@@ -95,18 +142,20 @@ function jsonpReq(param,succfn,failfn) {
         scriptCharset: "utf-8",
         contentType: "application/json; charset=utf-8"
     });
+    var url = encodeURIComponent(BASEURL+bathpath+JSON.stringify(param) )
+    url = BASEURL+bathpath+JSON.stringify(param)
      $.ajax({
-        url: BASEURL+bathpath+JSON.stringify(param),
+        url: url ,
         type: "get",
         dataType:"jsonp",
         jsonp: 'jsoncallback',
         jsonpCallback:"success_jsonpCallback",
         success: function(res){
             var body = strTojson(res.body);
-            succfn(body)
+            succfn(body,url)
         },
-        error: function(){
-            failfn()
+        error: function(err,url){
+            failfn(err,url)
         }
     })   
 }
@@ -213,13 +262,13 @@ function strTojson(str) {
             alert("请填写正确的手机号")
             return;
         }
-        var param = {myParams:[activId, 2, name, pho, "",  royal+" "+zone , org] };  // 单位名称尚未加入
+        var param = {myParams:[activId, 2, encodeURI(encodeURI(name)), pho, "",  encodeURI(encodeURI( royal+"-"+zone)) , encodeURI(encodeURI(org))] };  // 单位名称尚未加入 [19,2,'abd',13255546665,'','as','ad']
         goRegister(param)
     })
     
     function goRegister(param){
         $.extend(param, baseParam, { "method": "addActivityEnroll"} )
-        jsonpReq(param, function(res){
+        jsonpReq(param, function(res, url){
             if(res.status == 1) {
                 // 注册成功
                 $("section").hide()
@@ -249,29 +298,48 @@ $("#startAnser").on("click",function(){
 
 var usedTime = 0;
 var runningTime = null;
-
+var anwsered = false;
+var runningTime;
+var runningTime0;
+clearT(){
+    clearTimeout(runningTime)
+    clearTimeout(runningTime0)
+    runningTime = null;
+    runningTime0 = null;
+}
 function totalTime() {
     usedTime = 0;
-    clearTimeout(runningTime)
+    anwsered = false;
+    clearT();
     $(".header-time span").eq(0).html('00:00:00')
-    setTimeout(function repeat() {
+    runningTime0 = setTimeout(function repeat() {
         var str = formatTime(usedTime++)
         $(".header-time span").eq(0).html(str)
-        if(true) {
+        if(!anwsered) {
             runningTime = setTimeout(repeat,1000)
+        } else {
+            clearT();
+            runningTime = null;
         }
     },1000)
 }
-function runAnwser() {
-    queryQuestion()
-}
-
 var currentQuesInd = 0;
 var questions = [];
 var questLen = 0;
 var achvId; // 答题批次
 var btType; // 题目类型
 var nextClicked = true;
+
+function runAnwser() {
+    $(".choice ul").empty();
+    currentQuesInd = 0;
+    questions = []
+    questLen =0;
+    queryQuestion()
+
+}
+
+
 function queryQuestion() {
     var queryQuestionUrl = {myParams: [activId]};
     $.extend(queryQuestionUrl, baseParam, { "method": "initAnswerInfoList"} )
@@ -310,6 +378,7 @@ function renderQues(){
     $(".choice ul").html(choiceStr);
     nextClicked = false;
     $("#sec3 .current").text( fillNum(currentQuesInd+1) );
+    $(".btn-next").hide()
     anwserEventBind()
 }
 
@@ -395,8 +464,10 @@ function examAnwser(corretAnwser) {
 }
 
 /* 答题部分 */
-
+var resultId;
 function personOut(){
+    anwsered = true;
+    clearT()
     // 个人成绩
     var name = '';
     var count = '';
@@ -415,6 +486,7 @@ function personOut(){
             rate.toFixed(2)
             name = res.userName;
             localStorage.setItem("resultId",res.id)
+            resultId = res.id;
             $(".grade .name i").html(name)
             $(".used-time span").html(used)
             $(".result .count .num").html(count)
@@ -432,8 +504,24 @@ function personOut(){
 分享
 */
 (function(){
+    $(".sharelink").click(function(){
+        $(".share").show();
+        fxclick();
+    })
     shareLink()
+
+    function fxclick () {
+        if (!IsPC()) {
+            if (appVersion("1.4")) {
+                $(".share").show();
+                shareFlag = false;
+            } else if ((ostype == "ios") && (infofrom == "appnews")) {
+                //$(".mask, .failure_share").show();
+            }
+        }
+    }
     function shareLink() {
+        var shareLink = 
         $(".share img, .share span").click(function() {
             var index = $(this).parent().index(), name = null;
             switch (index) {
@@ -453,19 +541,22 @@ function personOut(){
                     name = "WeixinJSShare";
                     break;
             }
+
             if (name) {
                 if (ostype == "android") {
-                    if(shareFlag)
-                        jsBridge.postNotification(name, '{"activity_id": "17", "title": "学习防空防灾知识,掌握防护生存技能", "link": "//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid + '&achvId=' + achvId +'&ostype=' + ostype + '", "desc": "郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。", "img_url": "//moment.rednet.cn/common/img/RF-logo.png", "phoneNum": "", "is_update": "0"}');
+                    if(shareFlag) {
+                        jsBridge.postNotification(name, '{"activity_id": "19", "title": "学习党内法规,提高规矩意识、纪律意识", "link": "//moment.rednet.cn/activity/anwser/share.html?userid=' + userid + '&resultId'+resultId+ '&achvId=' + achvId +'&ostype=' + ostype + '", "desc": "湖南省党内法规学习竞赛活动。", "img_url": "//moment.rednet.cn/activity/anwser/images/logo@2x.png", "phoneNum": "", "is_update": "0"}');
+                    }
                     else{
-                        jsBridge.postNotification(name, '{"activity_id": "17", "title": "学习防空防灾知识,掌握防护生存技能", "link": "//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid  +'&ostype=' + ostype + '", "desc": "郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。", "img_url": "//moment.rednet.cn/common/img/RF-logo.png", "phoneNum": "", "is_update": "0"}');
+                        jsBridge.postNotification(name, '{"activity_id": "19", "title": "学习党内法规,提高规矩意识、纪律意识", "link": "//moment.rednet.cn/activity/anwser/share.html?userid=' + userid + '&resultId'+resultId +'&ostype=' + ostype + '", "desc": "湖南省党内法规学习竞赛活动。", "img_url": "//moment.rednet.cn/activity/anwser/images/logo@2x.png", "phoneNum": "", "is_update": "0"}');
                     }
 
                 } else if (ostype == "ios") {
-                    if(shareFlag)
-                        jsBridge.postNotification(name, {activity_id: '17', title: '学习防空防灾知识,掌握防护生存技能', link: '//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid + '&achvId=' + achvId +'&ostype=' + ostype, desc: '郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。', img_url: '//moment.rednet.cn/common/img/RF-logo.png', phoneNum: '', is_update: '0'});
+                    if(shareFlag){
+                        jsBridge.postNotification(name, {activity_id: '19', title: '学习党内法规,提高规矩意识、纪律意识', link: '//moment.rednet.cn/activity/anwser/share.html?userid=' + userid + '&resultId'+resultId + '&achvId=' + achvId +'&ostype=' + ostype, desc: '湖南省党内法规学习竞赛活动。', img_url: '//moment.rednet.cn/activity/anwser/images/logo@2x.png', phoneNum: '', is_update: '0'});
+                    }
                     else{
-                        jsBridge.postNotification(name, {activity_id: '17', title: '学习防空防灾知识,掌握防护生存技能', link: '//moment.rednet.cn/activity/RFActivity/share.html?userid=' + userid  +'&ostype=' + ostype, desc: '郴州市人民防空办公室、郴州市教育局举办的中小学人防知识教育教师教案评比和学生网络竞答活动。', img_url: '//moment.rednet.cn/common/img/RF-logo.png', phoneNum: '', is_update: '0'});
+                        jsBridge.postNotification(name, {activity_id: '19', title: '学习党内法规,提高规矩意识、纪律意识', link: '//moment.rednet.cn/activity/anwser/share.html?userid=' + userid + '&resultId'+resultId +'&ostype=' + ostype, desc: '湖南省党内法规学习竞赛活动。', img_url: '//moment.rednet.cn/activity/anwser/images/logo@2x.png', phoneNum: '', is_update: '0'});
                     }
 
                 }

@@ -21,12 +21,60 @@
             padding-top: 0.8rem;
             display: none;
         }
+        .header{
+            width: 6rem;
+            margin: auto;
+            display: flex;
+            padding-top: 0.54rem;
+        }
+        .header span{
+            text-align: left;
+        }
+        .header span:nth-of-type(1) {
+            width: 0.8rem;
+        }
+        .header span:nth-of-type(2) {
+            text-align: center;
+            width: 1.7rem;
+        }
+        .header span:nth-of-type(3) {
+            flex: 1;
+            text-align: center;
+        }
+        .header span:nth-of-type(4) {
+            flex: 1.5;
+            text-align: center;
+        }
+        .ranklist ul li span:nth-of-type(1) {
+            text-align: center;
+        }
+        .ranklist ul li span:nth-of-type(2) {
+            text-align: center;
+            flex: 1;
+        }
+        .ranklist ul li span:nth-of-type(3) {
+            text-align: center;
+            flex: 1.5
+        }
+        .ranklist ul{
+            padding-top: 0;
+        }
+        .back{
+
+        }
     </style>
 </head>
 <body>
+<div class="back"><div class="spritIcon sharebg"></div></div>
 <section id="sec5">
     <div class="ranklist">
         <p>暂未有排名, 敬请期待。</p>
+        <div class="header">
+            <span>名次</span>
+            <span>姓名</span>
+            <span>分数</span>
+            <span>时间</span>
+        </div>
         <ul>
         </ul>
     </div>

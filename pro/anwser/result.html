@@ -76,13 +76,12 @@
                 </div>
             </div>
         </div>
-        <img width='100%' src="images/page-rule.png" alt="">
         <div class="gap80"></div>
     </div>
     <div class="gap80"></div>
 </section>
 <script>
-    var resultId = getUrlParam("resultId");
+    var resultId = localStorage.getItem("resultId");
     var url='http://test.app.onlyred.net'+ '/rednetMoment-http/rednetApi.opx?param=';
 
     var UUID = uuid;
