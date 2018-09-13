@@ -132,3 +132,15 @@ todo: !!!! 系统审核的网址不通过，数量被算到了评论不通过
 
 ## react
 	* 组件内可设置state变量，更改应当使用setState方法，才会影响视图
+
+## wbdriverio 安装启动流程
+	* npm install -g webdriverio
+	* npm install -g wdio-mocha-framework
+	* npm install -g wdio-selenium-standalone-service
+	* npm install -g wdio-junit-reporter
+	* npm install -g selenium-standalone
+	* selenium-standalone install
+	* wdio ....
+	* 创建测试文件
+	* selenium-standalone start
+	* wdio 配置文件
